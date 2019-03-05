@@ -1,0 +1,26 @@
+{
+  "name": "the-booleans",
+  "version": "1.0.0",
+  "description": "Front Desk Hotel App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camille-the-eel/the-booleans.git"
+  },
+  "author": "Camille Hughes and Ariel Alas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camille-the-eel/the-booleans/issues"
+  },
+  "homepage": "https://github.com/camille-the-eel/the-booleans#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "path": "^0.12.7",
+    "sequelize": "^4.42.1"
+  }
+}
