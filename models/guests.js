@@ -1,24 +1,42 @@
 module.exports = function(sequelize, DataTypes){
     var Guest = sequelize.define("Guest", {
-        guest_name : DataTypes.STRING,
-        guest_phone: DataTypes.INTEGER,
+        last_name: {
+            type: DataTypes.STRING,
+            notNull: true
+        },
+        first_name: {
+            type: DataTypes.STRING,
+            notNull: true
+        },
+        guest_phone: {
+            type: DataTypes.INTEGER,
+            notNull: true
+        },
         guest_email: {
             type: DataTypes.STRING,
             isEmail: true
+        },
+        guest_notes: {
+            type: DataTypes.TEXT
+        },
+        credit_card_number: {
+            type: DataTypes.INTEGER,
+            isCreditCard: true,
+            notNull: true
+        },
+        credit_card_expiration: {
+            type: DataTypes.DATEONLY,
+            notNull: true
         }
-        // member_since: DataTypes.DATE,
-        // guest_notes: DataTypes.TEXT
-
+    },
+    {
+        freezeTableName: true
     });
 
     Guest.associate = function(models){
         Guest.hasMany(models.Reservation, {
             /***/
         });
-        Guest.hasMany(models.Hosted_at, {
-             /***/
-        });
-
     };
 
     return Guest;

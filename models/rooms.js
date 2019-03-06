@@ -1,22 +1,53 @@
 module.exports = function(sequelize, DataTypes){
-    var Room = sequelize.define("Room", {
-        available: DataTypes.BOOLEAN,
-        room_number: DataTypes.INTEGER,
-        bed_type: DataTypes.STRING,
-        jacuzzi: DataTypes.BOOLEAN,
-        balcony: DataTypes.BOOLEAN,
-        smoke: DataTypes.BOOLEAN
-    })
+    var Rooms = sequelize.define("Rooms", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+            max: 301
+        },
+        occupied: {
+            type: DataTypes.BOOLEAN,
+            notNull: true,
+            default: false
+        },
+        price_per_night: {
+            type: DataTypes.INTEGER,
+            notNull: true,
+        },
+        max_occupancy: {
+            type: DataTypes.INTEGER,
+            notNull: true
+        },
+        number_of_beds: {
+            type: DataTypes.INTEGER,
+            notNull: true,
+            max: 2
+        },
+        bed_type: {
+            type: DataTypes.STRING
+        },
+        adjoining: { 
+            type: DataTypes.BOOLEAN
+        },
+        jacuzzi: { 
+            type: DataTypes.BOOLEAN
+        },
+        balcony: { 
+            type: DataTypes.BOOLEAN
+        },
+        smoke: { 
+            type: DataTypes.BOOLEAN
+        }
+    },
+    {
+        freezeTableName: true
+    });
 
-    Room.associate = function(models){
-        Room.hasMany(models.Occupied_room,{
+    Rooms.associate = function(models){
+        Rooms.hasMany(models.Reservation_Room,{
             /***/
         });
-        Room.belongsTo(models.Room_type,{
-            foreignKey: {
-                allowNull : false
-            }
-        });
     };
-    return Room;
+    return Rooms;
 };
