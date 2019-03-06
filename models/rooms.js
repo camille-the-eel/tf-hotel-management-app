@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
         occupied: {
             type: DataTypes.BOOLEAN,
             notNull: true,
-            default: false
+            defaultValue: false
         },
         price_per_night: {
             type: DataTypes.INTEGER,

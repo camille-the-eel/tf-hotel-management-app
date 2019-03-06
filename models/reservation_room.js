@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
         canceled: {
             type: DataTypes.BOOLEAN,
             notNull: true,
-            default: false
+            defaultValue: false
         },
         total_price: {
             type: DataTypes.INTEGER
