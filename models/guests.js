@@ -14,7 +14,8 @@ module.exports = function(sequelize, DataTypes){
         },
         guest_email: {
             type: DataTypes.STRING,
-            isEmail: true
+            isEmail: true,
+            notNull: true
         },
         guest_notes: {
             type: DataTypes.TEXT

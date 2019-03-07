@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            max: 301
+            max: 401
         },
         occupied: {
             type: DataTypes.BOOLEAN,
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes){
         number_of_beds: {
             type: DataTypes.INTEGER,
             notNull: true,
-            max: 2
+            max: 3
         },
         bed_type: {
             type: DataTypes.STRING

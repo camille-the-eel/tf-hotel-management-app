@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var totalPrice;
+    // var totalPricePerRoom;
 
     var Reservation_Room = sequelize.define("Reservation_Room", {
         check_in: {
@@ -18,7 +18,12 @@ module.exports = function(sequelize, DataTypes){
             notNull: true,
             defaultValue: false
         },
-        total_price: {
+        number_of_rooms: {
+            type: DataTypes.INTEGER,
+            notNull: true,
+            defaultValue: 1
+        },
+        total_price_per_room: {
             type: DataTypes.INTEGER
         },
         guest_count: {
