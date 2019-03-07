@@ -1,20 +1,9 @@
-var path = require("path");
+var db = require("../models");
 
 module.exports = function(app){
     app.get("/", function(req, res){
-        res.sendFile(path.join(__dirname, "../public/index.html"));
+        db.Reservation.findAll().then(function(dbReservation){
+            res.render("index", {dbReservation});
         });
-
-    app.get("/guests", function(req, res){
-        res.sendFile(path.join(__dirname, "../public/guests.html"));
-    });
-
-    app.get("/reservations", function(req, res){
-        res.sendFile(path.join(__dirname, "../public/reservations.html"));
-
-    });
-
-    app.get("/reservation/new", function(req, res){
-        res.sendFile(path.join(__dirname, "../public/new-reservation.html"));
     });
 };
