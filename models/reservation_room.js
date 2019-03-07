@@ -1,4 +1,6 @@
 module.exports = function(sequelize, DataTypes){
+    var totalPrice;
+
     var Reservation_Room = sequelize.define("Reservation_Room", {
         check_in: {
             type: DataTypes.DATE
@@ -29,11 +31,6 @@ module.exports = function(sequelize, DataTypes){
     });
 
     Reservation_Room.associate = function(models){
-        Reservation_Room.belongsTo(models.Rooms,{
-            foreignKey :{
-                allowNull: false
-            }
-        });
         Reservation_Room.belongsTo(models.Reservation,{
             foreignKey :{
                 allowNull: false
