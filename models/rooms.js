@@ -45,7 +45,7 @@ module.exports = function(sequelize, DataTypes){
     });
 
     Rooms.associate = function(models){
-        Rooms.hasMany(models.Reservation_Room,{
+        Rooms.hasMany(models.Reservations,{
             /***/
         });
     };

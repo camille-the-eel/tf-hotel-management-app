@@ -31,6 +31,12 @@ module.exports = function(sequelize, DataTypes){
             }
         });
 
+        Reservation.belongsTo(models.Rooms,{
+            foreignKey :{
+                allowNull: false
+            }
+        });
+
         Reservation.hasMany(models.Reservation_Room,{
             /***/
         });
