@@ -5,6 +5,11 @@ module.exports = function(sequelize, DataTypes){
         },
         check_out: {
             type: DataTypes.DATE
+        }, 
+        in_house: {
+            type: DataTypes.BOOLEAN,
+            notNull: true,
+            defaultValue: false
         },
         canceled: {
             type: DataTypes.BOOLEAN,
