@@ -28,6 +28,14 @@ module.exports = function(sequelize, DataTypes){
         credit_card_expiration: {
             type: DataTypes.DATEONLY,
             notNull: true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
     },
     {

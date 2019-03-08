@@ -10,11 +10,10 @@ app.use(express.static("public"));
 app.set("view engine", "EJS");
 
 
-
 require("./routes/html-routes")(app);
 require("./routes/guests-api-routes")(app);
 
-db.sequelize.sync({ force: true }).then(function(){
+db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
         console.log("listening on: " + PORT);
     });
