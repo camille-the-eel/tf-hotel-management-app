@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes){
         number_of_beds: {
             type: DataTypes.INTEGER,
             notNull: true,
-            max: 3
+            max: 2
         },
         bed_type: {
             type: DataTypes.STRING
