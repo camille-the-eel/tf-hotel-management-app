@@ -25,6 +25,10 @@ module.exports = function(sequelize, DataTypes){
             isCreditCard: true,
             notNull: true
         },
+        credit_card_type: {
+            type: DataTypes.STRING,
+            notNull: true
+        },
         credit_card_expiration: {
             type: DataTypes.DATEONLY,
             notNull: true

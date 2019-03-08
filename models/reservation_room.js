@@ -1,5 +1,4 @@
 module.exports = function(sequelize, DataTypes){
-    // var totalPricePerRoom;
 
     var Reservation_Room = sequelize.define("Reservation_Room", {
         check_in: {
