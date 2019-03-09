@@ -1,6 +1,5 @@
-DROP DATABASE IF EXISTS hotel_app;
-
 CREATE DATABASE hotel_app;
 
-ALTER TABLE Room AUTO_INCREMENT = 101;
-ALTER TABLE Reservation AUTO_INCREMENT = 1001;
+USE hotel_app;
+
+Select * from guest;
