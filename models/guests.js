@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
             notNull: true
         },
         guest_phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             notNull: true
         },
         guest_email: {
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.TEXT
         },
         credit_card_number: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             isCreditCard: true,
             notNull: true
         },
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes){
             notNull: true
         },
         credit_card_expiration: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             notNull: true
         },
         createdAt: {
