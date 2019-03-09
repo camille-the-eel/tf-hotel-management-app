@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes){
 
     var Reservation = sequelize.define("Reservation", {
         date_in: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             notNull: true,
             isDate: true
         },
         date_out: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             notNull: true,
             isDate: true
         },
@@ -17,6 +17,14 @@ module.exports = function(sequelize, DataTypes){
         },
         total_price: {
             type: DataTypes.INTEGER
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
     },
     {

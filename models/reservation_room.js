@@ -2,10 +2,12 @@ module.exports = function(sequelize, DataTypes){
 
     var Reservation_Room = sequelize.define("Reservation_Room", {
         check_in: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         check_out: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }, 
         in_house: {
             type: DataTypes.BOOLEAN,
@@ -28,6 +30,14 @@ module.exports = function(sequelize, DataTypes){
         guest_count: {
             type: DataTypes.INTEGER,
             notNull: true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
     },
     {

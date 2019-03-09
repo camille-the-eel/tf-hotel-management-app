@@ -5,6 +5,14 @@ module.exports = function(sequelize, DataTypes){
             autoIncrement: true,
             primaryKey: true,
             max: 301
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
     },
     {
