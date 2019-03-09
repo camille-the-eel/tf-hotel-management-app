@@ -1,4 +1,18 @@
-
+body {
+    padding: 50px;
+}
 .hoverit:hover {
     color : plum;
 }
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+  
+}
+
