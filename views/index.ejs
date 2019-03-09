@@ -67,12 +67,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                <%for (var i = 0; i < guest.length; i++){%>
+                
                 <tr>
-                <td>Camille</td>
-                <td>Hughes</td>
-                <td>chughes@gmail.com</td>
-                <td>01/01/2019</td>
+                <td><%=guest[i].first_name%></td>
+                <td><%=guest[i].last_name%></td>
+                <td><%=guest[i].guest_email%></td>
+                <td><%="NA"%></td>
                 </tr>
+
+                <%}%>
+                
                 </tbody>
                 </table>
               
