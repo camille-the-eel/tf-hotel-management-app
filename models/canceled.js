@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes){
             max: 301
         },
         createdAt: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE ,
             allowNull: true
         },
         updatedAt: {

@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app){
-    app.get("/api/guests", function(req, res){
+    app.get("/api/guests/all", function(req, res){
         db.Guest.findAll({
             include: [db.Reservation]
         }).then(function(dbGuest){
