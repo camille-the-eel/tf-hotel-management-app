@@ -2,18 +2,63 @@
 //this is where we do our jquery onclicks and also the ajax put/post to push the info into our api arrays
 
 $(document).ready(function () {
-//GUEST
+    //GUEST
+    var guestcontainer = $(".guestContent");
+    var reservationcontainer = $(".reservationContent");
+    var roomscontainer = $(".roomscontainer");
+
     //SEARCH ALL
-    $("#searchAllGuests").on("click", function(event) {
-        $.ajax("/api/guests/all", {
-            type: "GET"
-        }).then(function () {
-            console.log("All guests are displayed. Use form to narrow your search.");
+    $("#searchAllGuests").on("click", function (event) {
+
+        $.ajax({
+            url: "/partial/allguests"
+        }).then(function (data) {
             
-            //this reloads page, must change
-            location.reload(); //we don't want the whole page to reload, just the list to update as we go
+            guestcontainer.html(data);
+            // location.reload(); //we don't want the whole page to reload, just the list to update as we go
         })
     });
-    
+    $("#currentGuests").on("click", function (event) {
+        $.ajax({
+            url: "/partial/inHouse"
+        }).then(function (data) {
+            
+            guestcontainer.html(data);
+            // location.reload(); //we don't want the whole page to reload, just the list to update as we go
+        })
 
-}); //END DOC.READY
+    });
+    $("#reservationArrivals").on("click", function(event){
+        $.ajax({
+            url: "/arrivals"
+        }).then(function(data){
+            reservationcontainer.html(data);
+
+        });
+    });
+    $("#reservationDepartures").on("click", function(event){
+        $.ajax({
+            url: "/departures"
+        }).then(function(data){
+            reservationcontainer.html(data);
+
+        });
+    });
+    $("#roomsOcupied").on("click", function(event){
+        $.ajax({
+            url : "/occupied"
+        }).then(function(data){
+            roomscontainer.html(data);
+        });
+    });
+
+    $("#roomsAvailable").on("click", function(event){
+        $.ajax({
+            url : "/available"
+        }).then(function(data){
+            roomscontainer.html(data);
+        });
+    });
+});
+
+//END DOC.READY

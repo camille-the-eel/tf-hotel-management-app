@@ -1,0 +1,26 @@
+
+                <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>ROOM #</th>
+                    <th>PRICE/NIGHT</th>
+                    <th>NEXT DATE IN</th>
+                    <th>NEXT DATE OUT</th>
+                   <!--<th>Last Stay</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                <%for (var i = 0; i < Room.length; i++){%>
+                
+                <tr>
+                <td><%=Room[i].id%></td>
+                <td><%=Room[i].price_per_night%></td>
+                <td>A date goes here</td>
+                <td>A date goes here</td>
+                <!--<td><%="NA"%></td>-->
+                </tr>
+
+                <%}%>
+                </tbody>
+                </table>
+                

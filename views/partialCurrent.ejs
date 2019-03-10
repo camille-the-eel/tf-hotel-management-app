@@ -1,0 +1,27 @@
+
+                <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>PHONE #</th>
+                    <th>EMAIL</th>
+
+                   <!--<th>Last Stay</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                <%for (var i = 0; i < reservation_room.length; i++){%>
+                
+                <tr>
+                <td><%=reservation_room[i].Reservation.Guest.first_name%></td>
+                <td><%=reservation_room[i].Reservation.Guest.last_name%></td>
+                <td><%=reservation_room[i].Reservation.Guest.guest_phone%></td>
+                <td><%=reservation_room[i].Reservation.Guest.guest_email%></td>
+                <!--<td><%="NA"%></td>-->
+                </tr>
+
+                <%}%>
+                </tbody>
+                </table>
+                
