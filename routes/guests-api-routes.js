@@ -34,5 +34,11 @@ module.exports = function(app){
             res.json(dbGuest);
         });
     });
+    // Testing post
+    app.post("/api/guests", function(req, res){
+        console.log(req.body);
+    });
 
 };
+
+

@@ -17,14 +17,14 @@
             <h1 class="title">GUESTS</h1>
             <br>
             <h1 class="title is-inline ">
-                <strong id="currentGuests" class = "hoverit">CURRENT: 180 </strong>
+                <strong id="currentGuests" class = "hoverit" data-target ="partialCurrent">CURRENT: 180 </strong>
                 |
-                <strong id="searchAllGuests" class = "hoverit">SEARCH ALL</strong>
+                <strong id="searchAllGuests" class = "hoverit" data-target ="partialAllGuests">SEARCH ALL</strong>
             </h1>
         </section>
         <section class="section">
             <h1 class="title">SEARCH BY:</h1>
-            <div class="field is-horizontal">
+            <form class="field is-horizontal" action = "/api/guests" method = "post">
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded">
@@ -37,8 +37,8 @@
                         </p>
                     </div>
                 </div>
-            </div>
-            <div class="field is-horizontal">
+            </form>
+            <form class="field is-horizontal" action = "/api/guests" method = "post">
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded">
@@ -51,35 +51,24 @@
                         </p>
                     </div>
                 </div>
+                <div class="field ">
+            <div class="control has-text-centered">
+                <button class="button is-link">Submit</button>
             </div>
-            <div class="field ">
-                <div class="control has-text-centered">
-                    <button class="button is-link">Submit</button>
-                </div>
-                </div>
-                <table class="table is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Phone #</th>
-                    <th>Email</th>
-                    <th>Last Stay</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <%for (var i = 0; i < guest.length; i++){%>
+            </div>
                 
-                <tr>
-                <td><%=guest[i].first_name%></td>
-                <td><%=guest[i].last_name%></td>
-                <td><%=guest[i].guest_email%></td>
-                <td><%="NA"%></td>
-                </tr>
+            </form>
+            
+            
+            
+                <div class = "guestContent">
+                <!--GUEST TABLE GOES HERE-->
+                
+                <% include partialCurrent %>
 
-                <%}%>
+
+                </div>
                 
-                </tbody>
-                </table>
               
         </section>
         <a href = "/reservation/new"class="button is-large is-fullwidth">NEW RESERVATION</a>
@@ -177,33 +166,16 @@
         </tbody>
         </table>
         <section class="section">
-            <h1 class="title is-inline"><strong class = "hoverit" id="reservationArrivals hoverit">ARRIVALS: 12 </strong> | <strong
+            <h1 class="title is-inline"><strong class = "hoverit" id="reservationArrivals">ARRIVALS: 12 </strong> | <strong
                     id="reservationDepartures" class = "hoverit">DEPARTURES: 35</strong></h1>
 
-                    <table class="table is-fullwidth">
-                    <thead>
-                      <tr>
-                      <th>RES #</th>
-                      <th>NAME</th>
-                      <th>DATE IN</th>
-                      <th>DATE OUT</th>
-                      <th>ROOM #</th>
-                      <th></th>
-                      <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>8575</td>
-        <td>Camille Highes</td>
-        <td>01/01/2019</td>
-        <td>01/08/2019</td>
-        <td>101</td>
-        <td>CHECK IN</td>
-        <td>X</td>
-                    </tr>
-                    </tbody>
-                    </table>
+
+                    <!--TABLE FOR ARRIVALS AND DEPARTURES -->
+                    <div class = "reservationContent">
+
+                    <% include arrivals %>
+                    
+                   </div>
         </section>
 
         </section>
@@ -290,24 +262,13 @@
         </div>
             
         </div>
-        <table class="table is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Phone #</th>
-                    <th>Email</th>
-                    <th>Last Stay</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td>Camille</td>
-                <td>Hughes</td>
-                <td>chughes@gmail.com</td>
-                <td>01/01/2019</td>
-                </tr>
-                </tbody>
-                </table>
+        <div class = "roomscontainer">
+
+        <!--ROOMS TABLE GOES HERE-->
+
+        <% include available %>
+
+                </div>
     </div>
     
 </div>
