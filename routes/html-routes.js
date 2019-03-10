@@ -92,17 +92,33 @@ module.exports = function (app) {
   
 
     app.get("/arrivals", function (req, res) {
+
+        // var localFormat = 'YYYY-MM-DD';
+        var localFormat = 'ddd MMM DD hh:mm:ss GMT-HHMM "(Eastern Daylight Time)"';
+        var cur = {
+            query: {
+                cur_date: moment(new Date).format(localFormat)
+            }
+        };
+
         db.Reservation.findAll({
             include: [db.Guest],
             where: {
-                date_in: "Sun Mar 10 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                date_in: 
+                { 
+                    // "Sun Mar 01 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                    [db.Sequelize.Op.and]: [
+                        cur.query.cur_date
+                    ]
+                }
             }
-
         }).then(function (dbReservation) {
             res.render("arrivals", {layout : false, Reservation : dbReservation});
-            
+            console.log(dbReservation);
+            console.log("new Date", cur.query.cur_date);
         });
     });
+
     app.get("/departures", function (req, res) {
         db.Reservation.findAll({
             include: [db.Guest],
@@ -133,13 +149,6 @@ module.exports = function (app) {
             res.render("available", {layout: false, Room2:dbRooms })
         });
     });
-
-    
-
-
-
-
-
 
         app.get("/reservation/new", function (req, res) {
             db.Rooms.findAll({}).then(function (dbRooms) {

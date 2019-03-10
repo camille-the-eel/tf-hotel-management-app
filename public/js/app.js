@@ -9,31 +9,26 @@ $(document).ready(function () {
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
-
         $.ajax({
             url: "/partial/allguests"
-        }).then(function (data) {
-            
+        }).then(function (data) {      
             guestcontainer.html(data);
-            // location.reload(); //we don't want the whole page to reload, just the list to update as we go
         })
     });
+
     $("#currentGuests").on("click", function (event) {
         $.ajax({
             url: "/partial/inHouse"
-        }).then(function (data) {
-            
+        }).then(function (data) { 
             guestcontainer.html(data);
-            // location.reload(); //we don't want the whole page to reload, just the list to update as we go
         })
-
     });
+
     $("#reservationArrivals").on("click", function(event){
         $.ajax({
             url: "/arrivals"
         }).then(function(data){
             reservationcontainer.html(data);
-
         });
     });
     $("#reservationDepartures").on("click", function(event){
