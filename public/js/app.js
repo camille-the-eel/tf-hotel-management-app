@@ -59,6 +59,15 @@ $(document).ready(function () {
             roomscontainer.html(data);
         });
     });
+
+    $("#guestsearch").on("click", function(event){
+        event.preventDefault();
+        $.ajax({
+            url : "/searchguest"
+        }).then(function(data){
+            guestcontainer.html(data);
+        });
+    });
 });
 
 //END DOC.READY
