@@ -1,5 +1,5 @@
 var db = require("../models");
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 
 module.exports = function (app) {
@@ -67,8 +67,10 @@ module.exports = function (app) {
 
     });
    
-    //Rendering in partials instead of index
 
+//RENDERING IN EJS PARTIALS INSTEAD OF INDEX
+
+    //GUESTS CURRENTLY IN HOUSE | GET
     app.get("/partial/inHouse", function (req, res) {
         db.Reservation_Room.findAll({
             include: [{
@@ -83,6 +85,7 @@ module.exports = function (app) {
         })
     });
 
+    //COMPLETE GUEST LIST | GET
     app.get("/partial/allguests", function (req, res) {
         db.Guest.findAll({}).then(function (dbGuest) {
             res.render("partialAllGuests", { layout: false, Guest: dbGuest });
@@ -90,40 +93,62 @@ module.exports = function (app) {
     });
 
   
-
+    //ARRIVALS FOR TODAY LIST | GET
     app.get("/arrivals", function (req, res) {
+        var cur = {
+            query: {
+                cur_date: moment(new Date).format('YYYY-MM-DD')
+            }
+        };
         db.Reservation.findAll({
             include: [db.Guest],
             where: {
-                date_in: "Sun Mar 10 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                date_in: 
+                { 
+                    [db.Sequelize.Op.and]: [
+                        cur.query.cur_date
+                    ]
+                }
             }
-
         }).then(function (dbReservation) {
             res.render("arrivals", {layout : false, Reservation : dbReservation});
-            
         });
     });
+
+    //DEPARTURES FOR TODAY LIST | GET
     app.get("/departures", function (req, res) {
+        var cur = {
+            query: {
+                cur_date: moment(new Date).format('YYYY-MM-DD')
+            }
+        };
         db.Reservation.findAll({
             include: [db.Guest],
             where: {
-                date_out: "Sun Mar 10 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                date_out:
+                { 
+                    [db.Sequelize.Op.and]: [
+                        cur.query.cur_date
+                    ]
+                }
             }
-
         }).then(function (dbReservation) {
-            res.render("departures", {layout : false, Reservation2 : dbReservation});
-            
+            res.render("departures", {layout : false, Reservation2 : dbReservation});  
         });
     });
+
+    //OCCUPIED ROOMS | GET
     app.get("/occupied", function(req, res){
         db.Rooms.findAll({
             where : {
                 occupied : 1
             }
          }).then(function(dbRooms){
-             res.render("occupied", {layour : false, Room:dbRooms })
+             res.render("occupied", {layout : false, Room : dbRooms })
          });
     });
+
+    //ROOMS AVAILABLE TODAY | GET
     app.get("/available", function(req, res){
         db.Rooms.findAll({
             where : {
@@ -134,16 +159,10 @@ module.exports = function (app) {
         });
     });
 
-    
-
-
-
-
-
-
-        app.get("/reservation/new", function (req, res) {
-            db.Rooms.findAll({}).then(function (dbRooms) {
-                res.render("new-reservation", { rooms: dbRooms });
-            });
+    //
+    app.get("/reservation/new", function (req, res) {
+        db.Rooms.findAll({}).then(function (dbRooms) {
+            res.render("new-reservation", { rooms: dbRooms });
         });
+    });
     };
