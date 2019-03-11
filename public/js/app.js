@@ -29,7 +29,7 @@ $(document).ready(function () {
             url: "/arrivals"
         }).then(function(data){
             reservationcontainer.html(data);
-        });
+        })
     });
     $("#reservationDepartures").on("click", function(event){
         $.ajax({

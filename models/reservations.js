@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes){
 
     var Reservation = sequelize.define("Reservation", {
         date_in: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             notNull: true,
             isDate: true
         },
         date_out: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             notNull: true,
             isDate: true
         },
