@@ -117,15 +117,23 @@ module.exports = function (app) {
 
     //DEPARTURES FOR TODAY LIST | GET
     app.get("/departures", function (req, res) {
+        var cur = {
+            query: {
+                cur_date: moment(new Date).format('YYYY-MM-DD')
+            }
+        };
         db.Reservation.findAll({
             include: [db.Guest],
             where: {
-                date_out: "Sun Mar 10 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                date_out:
+                { 
+                    [db.Sequelize.Op.and]: [
+                        cur.query.cur_date
+                    ]
+                }
             }
-
         }).then(function (dbReservation) {
-            res.render("departures", {layout : false, Reservation2 : dbReservation});
-            
+            res.render("departures", {layout : false, Reservation2 : dbReservation});  
         });
     });
 
