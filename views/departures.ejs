@@ -18,7 +18,19 @@
                 <td><%=Reservation2[i].date_in%></td>
                 <td><%=Reservation2[i].date_out%></td>
                 <td><%=Reservation2[i].RoomId%></td>
-                <td>Check-Out</td>
+                <td>
+                    <form action = "/api/checkOut" method = "POST">
+                      <div class="field is-horizontal">
+                        <div class="field-body">
+                          <div class="field has-addons">
+                            <div class = "control">
+                                <input id = "check-out" class = "button" type = "submit" value = "CHECK OUT">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
                 </tr>
 
                 <%}%>

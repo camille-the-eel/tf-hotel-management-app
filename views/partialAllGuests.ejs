@@ -2,8 +2,7 @@
                 <table class="table is-fullwidth">
                 <thead>
                   <tr>
-                  <th>FIRST NAME</th>
-                  <th>LAST NAME</th>
+                  <th>NAME</th>
                   <th>PHONE #</th>
                   <th>EMAIL</th>
                   <!--<th>Last Stay</th>-->
@@ -13,8 +12,7 @@
                 <%for (var i = 0; i < Guest.length; i++){%>
                 
                 <tr>
-                <td><%=Guest[i].first_name%></td>
-                <td><%=Guest[i].last_name%></td>
+                <td><%=Guest[i].first_name%> <%=Guest[i].last_name%></td>
                 <td><%=Guest[i].guest_phone%></td>
                 <td><%=Guest[i].guest_email%></td>
                 <!--<td><%="NA"%></td>-->
