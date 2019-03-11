@@ -1,5 +1,5 @@
 var db = require("../models");
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 
 module.exports = function (app) {
@@ -93,11 +93,15 @@ module.exports = function (app) {
 
     app.get("/arrivals", function (req, res) {
 
-        // var localFormat = 'YYYY-MM-DD';
-        var localFormat = 'ddd MMM DD hh:mm:ss GMT-HHMM "(Eastern Daylight Time)"';
+        //TIMEZONE TESTING
+        // moment.tz(new Date, 'America/New_York').format('z');  CONSOLE.LOGS INTO "EDT" WITH NO DATE ATTACHED
+
+        // var newDate = moment(new Date).format('YYYY-MM-DD hh:mm:ss');
+        // moment.tz(newDate, 'America/New_York').format('z') CONSOLE.LOGS INTO "EDT" WITH NO DATE ATTACHED
+
         var cur = {
             query: {
-                cur_date: moment(new Date).format(localFormat)
+                cur_date: moment(new Date).format('YYYY-MM-DD hh:mm:ss')
             }
         };
 
@@ -106,7 +110,7 @@ module.exports = function (app) {
             where: {
                 date_in: 
                 { 
-                    // "Sun Mar 01 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                    // "Sun May 01 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
                     [db.Sequelize.Op.and]: [
                         cur.query.cur_date
                     ]
