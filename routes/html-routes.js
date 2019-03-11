@@ -1,5 +1,5 @@
 var db = require("../models");
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 
 module.exports = function (app) {
@@ -92,17 +92,37 @@ module.exports = function (app) {
   
 
     app.get("/arrivals", function (req, res) {
+
+        //TIMEZONE TESTING
+        // moment.tz(new Date, 'America/New_York').format('z');  CONSOLE.LOGS INTO "EDT" WITH NO DATE ATTACHED
+
+        // var newDate = moment(new Date).format('YYYY-MM-DD hh:mm:ss');
+        // moment.tz(newDate, 'America/New_York').format('z') CONSOLE.LOGS INTO "EDT" WITH NO DATE ATTACHED
+
+        var cur = {
+            query: {
+                cur_date: moment(new Date).format('YYYY-MM-DD hh:mm:ss')
+            }
+        };
+
         db.Reservation.findAll({
             include: [db.Guest],
             where: {
-                date_in: "Sun Mar 10 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                date_in: 
+                { 
+                    // "Sun May 01 2019 20:00:00 GMT-0400 (Eastern Daylight Time)"
+                    [db.Sequelize.Op.and]: [
+                        cur.query.cur_date
+                    ]
+                }
             }
-
         }).then(function (dbReservation) {
             res.render("arrivals", {layout : false, Reservation : dbReservation});
-            
+            console.log(dbReservation);
+            console.log("new Date", cur.query.cur_date);
         });
     });
+
     app.get("/departures", function (req, res) {
         db.Reservation.findAll({
             include: [db.Guest],
@@ -133,13 +153,6 @@ module.exports = function (app) {
             res.render("available", {layout: false, Room2:dbRooms })
         });
     });
-
-    
-
-
-
-
-
 
         app.get("/reservation/new", function (req, res) {
             db.Rooms.findAll({}).then(function (dbRooms) {
