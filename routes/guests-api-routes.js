@@ -1,5 +1,6 @@
 var db = require("../models");
 
+
 module.exports = function(app){
     app.get("/api/guests/all", function(req, res){
         db.Guest.findAll({
@@ -8,17 +9,19 @@ module.exports = function(app){
             res.json(dbGuest);
         });
     });
-    app.get("/api/guests/:id", function(req, res){
+    app.get("/api/guests/:condition", function(req, res){
         db.Guest.findOne({
             where:
             {
-                id: req.params.id
+                $or : [{id: req.params.condition}, {first_name: req.params.condition}, {last_name: req.params.condition},{guest_phone: req.params.condition},{guest_email: req.params.condition}]
             }
         }).then(function(dbGuest){
             
             res.json(dbGuest);
         });
     });
+
+
     app.post("/api/guests/new", function(req, res){
         db.Guest.create(req.body).then(function(dbGuest){
             res.json(dbGuest);
