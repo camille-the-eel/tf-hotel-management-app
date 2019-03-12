@@ -14,74 +14,8 @@
     <div class="column is-one-third">
 
         <h1 class="title is-1">RESERVATION DETAILS</h1>
-
-
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">FIRST NAME</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="FIRST NAME">
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">LAST NAME</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="LAST NAME">
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">EMAIL</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="EMAIL">
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">PHONE #</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="PHONE #">
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">TOTAL GUESTS</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="TOTAL GUESTS">
-                    </p>
-                </div>
-            </div>
-        </div>
-
+        
+        <form action = "/rooms" method = "POST">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">CHECK-IN</label>
@@ -89,7 +23,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="CHECK-IN">
+                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_in">
                     </p>
                 </div>
             </div>
@@ -102,7 +36,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="CHECK-OUT">
+                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_out">
                     </p>
                 </div>
             </div>
@@ -115,7 +49,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="TOTAL NIGHTS">
+                        <input class="input" type="text" placeholder="TOTAL NIGHTS" name = "total_nights">
                     </p>
                 </div>
             </div>
@@ -128,7 +62,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="PRICE/NIGHT">
+                        <!--A dropdown box with prices selection goes here-->
                     </p>
                 </div>
             </div>
@@ -136,14 +70,37 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
+                <label class="label">TOTAL GUESTS</label>
+            </div>
+            <div class="field-body">
+            <div class="select">
+            <select name = "total_nights">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              
+            </select>
+        </div>
+            </div>
+        </div>  
+
+
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
                 <label class="label"># OF BEDS</label>
             </div>
             <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="# OF BEDS">
-                    </p>
-                </div>
+            <div class="select">
+            <select name = "number_of_beds">
+                <option>1</option>
+                <option>2</option>
+              
+            </select>
+        </div>
             </div>
         </div>
 
@@ -152,39 +109,41 @@
                 <label class="label">BED TYPE</label>
             </div>
             <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="BED TYPE">
-                    </p>
-                </div>
+            <div class="select">
+            <select name = "bed_type">
+                <option>KING</option>
+                <option>QUEEN</option>
+                <option>FULL</option>
+            </select>
+        </div>
             </div>
         </div>
 
         <div class="field is-horizontal ">
             <div class="field-body">
                 <div class="select">
-                    <select>
+                    <select name = "adjoining">
                         <option>ADJOINING</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </div>
                 <div class="select">
-                    <select>
+                    <select name = "jacuzzi">
                         <option>JACUZZI</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </div>
                 <div class="select">
-                    <select>
+                    <select name = "balcony">
                         <option>BALCONY</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </div>
                 <div class="select">
-                    <select>
+                    <select name = "smoke">
                         <option>SMOKE</option>
                         <option>Yes</option>
                         <option>No</option>
@@ -193,10 +152,62 @@
                 </div>
             </div>
         </div>
+        <input id = "newreservationsearch" class="button" type="submit" value="Search Room">
+        </form>
 
+        <h1 class="title is-1">CUSTOMER DETAILS</h1>
 
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">FIRST NAME</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="FIRST NAME" name= "first_name">
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <h1 class="title is-1">PAYMENT DETAILS</h1>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">LAST NAME</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="LAST NAME" name= "last_name">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">EMAIL</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="EMAIL" name= "guest_email">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">PHONE #</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="PHONE #" name= "guest_phone">
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -205,7 +216,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="####-####-####-####">
+                        <input class="input" type="text" placeholder="####-####-####-####" name= "credit_card_number">
                     </p>
                 </div>
             </div>
@@ -218,7 +229,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="MM/YYYY">
+                        <input class="input" type="text" placeholder="MM/YYYY" name= "credit_card_expiration">
                     </p>
                 </div>
             </div>
@@ -231,17 +242,13 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="TOTAL PRICE">
+                        <!--This is Price/Night * total/Nights-->
                     </p>
                 </div>
             </div>
         </div>
         
     </div>
-
-
-
-
 
     <div class="column relative is-clearfix">
 

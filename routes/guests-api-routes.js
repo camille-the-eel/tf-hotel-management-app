@@ -38,19 +38,6 @@ module.exports = function(app){
         });
     });
     // Testing post
-    app.post("/api/searchGuest", function(req, res){
-        console.log(req.body);
-        db.Guest.findOne({
-            
-            where: [req.body]
-
-        }).then(function(dbGuest){
-            console.log(dbGuest);
-
-            res.render("searchguest", {layout:false, searchguest: dbGuest});
-            
-        });
-    });
     
 
 };
