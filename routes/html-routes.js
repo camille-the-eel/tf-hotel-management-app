@@ -5,6 +5,8 @@ var moment = require('moment-timezone');
 module.exports = function (app) {
     app.get("/", function (req, res) {
 
+        console.log(req.body);
+     
         db.Reservation.findAll({
             include:[db.Guest],
             where: {
@@ -43,21 +45,21 @@ module.exports = function (app) {
                                     occupied : 0
                                 }
                             }).then(function(dbRooms2){
-                                res.render("index", {
-                                    Guest: dbGuest,
-                                    Reservation: dbReservation,
-                                    Reservation2: dbReserv,
-                                    Room: dbRooms,
-                                    Room2 : dbRooms2,
-                                    reservation_room: dbReservationRoom
-                            })
 
+        
+
+                                    res.render("index", {
+                                        Guest: dbGuest,
+                                        Reservation: dbReservation,
+                                        Reservation2: dbReserv,
+                                        Room: dbRooms,
+                                        Room2 : dbRooms2,
+                                        reservation_room: dbReservationRoom
+                                        
+                                })
+                               
                             });
-
-                            
-                        // console.log("reservation room data: ", dbReservationRoom);
-
-                        
+                        // console.log("reservation room data: ", dbReservationRoom);                     
                         });
                     });
                 });
@@ -159,10 +161,36 @@ module.exports = function (app) {
         });
     });
 
-    //
+    //SEARCH GUEST THAT IS NOT WORKING
+    app.post("/", function(req, res){
+
+        console.log("THIS IS A STRING");
+        db.Guest.findAll({where : [req.query]}).then(function(dbGuest){
+            
+      res.render("searchguest", {layout: false, searchguest: dbGuest});
+
+      });
+     });
+
+    // NEW RESERVATION PAGE ROUTES
     app.get("/reservation/new", function (req, res) {
+       
         db.Rooms.findAll({}).then(function (dbRooms) {
             res.render("new-reservation", { rooms: dbRooms });
         });
+
     });
+   
+    // app.post("/rooms", function(req, res){
+    //     db.Rooms.findAll({where: {
+    //         date_in: req.body.date_in
+    //     }}).then(function(dbRooms){res.render("rooms", {rooms: dbRooms})});
+    // });
+    // app.get("/rooms", function(req, res){
+
+    //     res.render("rooms");
+    // });
+
+    
+    
     };

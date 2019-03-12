@@ -55,14 +55,28 @@ $(document).ready(function () {
         });
     });
 
-    $("#guestsearch").on("click", function(event){
+    // $("#guestsearch").on("click", function(event){
+    //     event.preventDefault();
+
+    //     $.ajax({
+    //         url : "/"
+    //     }).then(function(data){
+          
+    //         console.log(data);
+            
+    //     });
+    // });
+
+
+    // NEW-RESERVATION PAGE WHICH IS NOT WORKING EITHER
+    $("#newreservationsearch").on("click", function(event){
         event.preventDefault();
-        $.ajax({
-            url : "/searchguest"
-        }).then(function(data){
-            guestcontainer.html(data);
-        });
+
+        $.ajax({url : "/rooms"}).then(function(data){console.log(data)});
+
     });
+
+
 });
 
 //END DOC.READY
