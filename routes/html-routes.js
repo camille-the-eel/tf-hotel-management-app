@@ -77,58 +77,40 @@ module.exports = function (app) {
     });
    
     //CREATE NEW RESERVATION HTML PAGE ROUTE
-    // app.get("/reservation/new", function (req, res) {
-
-    //     db.Reservation.findAll({
-    //         include: [db.Guest]
-    //     }).then(function (dbReservation) {
-    //         db.Guest.findAll({
-
-    //         }).then(function (dbGuest) {
-    //             db.Rooms.findAll({
-
-    //             }).then(function (dbRooms) {
-    //                 db.Reservation_Room.findAll({
-    //                     include: {
-    //                         model: db.Reservation,
-    //                         include: [db.Guest]
-    //                     }
-    //                 }).then(function (dbReservationRoom) {
-    //                     res.render("new-reservation", {layout: false
-    //                         // Guest: dbGuest,
-    //                         // Reservation: dbReservation,
-    //                         // Rooms: dbRooms,
-    //                         // Reservation_Room: dbReservationRoom
-    //                     });
-    //                     // res.send(200);
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
-
-    app.get("/reservation/new/", function (req, res, next) {
+    app.get("/reservation/new", function (req, res) {
 
         db.Reservation.findAll({
-            include: [db.Rooms]
-        }).then(function (dbRooms) {
+            include: [db.Guest]
+        }).then(function (dbReservation) {
+            db.Guest.findAll({
 
-            var startDate = req.query.start_date;
-            var endDate = req.query.end_date;
-            var validRooms = [];
+            }).then(function (dbGuest) {
+                db.Rooms.findAll({
 
-            for (i = 0; i < dbRooms.length; i++) {
-                if (moment(startDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[)') === false && moment(endDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[]') === false) {
-                    // console.log("ROOM AVAILABLE: ID: ", dbRooms[i].id, " Date In: ", dbRooms[i].date_in, " Date Out: ", dbRooms[i].date_out);
-                    validRooms.push(dbRooms[i]);
-                    // console.log("Success!", " startDate: ", startDate, " endDate: ", endDate, " date_in: ", dbRooms[i].date_in, " date_out: ", dbRooms[i].date_out);
-                } 
-            }
-            console.log(validRooms);
-            res.render("new-reservation", {layout: false, Rooms : validRooms});
-            // res.json(dbRooms);
-
+                }).then(function (dbRooms) {
+                    db.Reservation_Room.findAll({
+                        include: {
+                            model: db.Reservation,
+                            include: [db.Guest]
+                        }
+                    }).then(function (dbReservationRoom) {
+                        res.render("new-reservation", {
+                            Guest: dbGuest,
+                            Reserrvation: dbReservation,
+                            Rooms: dbRooms,
+                            Reservation_Room: dbReservationRoom
+                        });
+                    });
+                });
+            });
         });
+
+        // db.Reservation.findAll({
+        //     include : [db.Guest, db.Rooms]
+        // }).then(function (dbRooms) {
+        //     res.render("new-reservation", { Rooms: dbRooms });
+        // });
+
     });
 
 //===========================================================================
