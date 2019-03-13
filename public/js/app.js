@@ -154,15 +154,20 @@ $(document).ready(function () {
             guest_email: $("#reservationemail").val().trim(),
             }
             $.ajax({
-                url: "/api/reservations/guests/search?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
-            }).then(function(data){
+                url: "/api/reservations/guests/search?first_name=" + condition.first_name + "&last_name=" + condition.last_name + "&guest_phone=" + condition.guest_phone + "&guest_email=" + condition.guest_email            }).then(function(data){
                 console.log(data);
             });
     });
 
     $("#newreservationsearch").on("click", function(event){
+        var condition = {
+            startDate: $("#start-date").val().trim(),
+            endDate: $("#end-date").val().trim(),
+            }
         $.ajax({
-            url : "/reservation/new/roomsearch"
+            // url : "/reservation/new/roomsearch"
+            url : "/reservation/new?start_date=" + condition.startDate + "&end_date=" + condition.endDate
+            // url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
         }).then(function(data){
             resroomscontainer.html(data);
         });
