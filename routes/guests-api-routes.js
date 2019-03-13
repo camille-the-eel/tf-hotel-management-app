@@ -9,12 +9,27 @@ module.exports = function(app){
             res.json(dbGuest);
         });
     });
-    app.get("/api/guests/:condition", function(req, res){
-        db.Guest.findOne({
-            where:
-            {
-                [db.Sequelize.Op.or] : [{id: req.params.condition}, {first_name: req.params.condition}, {last_name: req.params.condition},{guest_phone: req.params.condition},{guest_email: req.params.condition}]
-            }
+    app.get("/api/guests/search", function(req, res){
+
+        var validWhere = {};
+
+        if(req.query.first_name) {
+            validWhere.first_name = req.query.first_name;
+        }
+        if(req.query.last_name) {
+            validWhere.last_name = req.query.last_name;
+        }
+        if(req.query.guest_email) {
+            validWhere.guest_email = req.query.guest_email;
+        }
+        if(req.query.guest_phone) {
+            validWhere.guest_phone = req.query.guest_phone;
+        }
+
+
+        db.Guest.findAll({
+            where:validWhere
+            
         }).then(function(dbGuest){
             
             res.json(dbGuest);
