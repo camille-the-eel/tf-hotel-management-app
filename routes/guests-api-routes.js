@@ -13,7 +13,7 @@ module.exports = function(app){
         db.Guest.findOne({
             where:
             {
-                $or : [{id: req.params.condition}, {first_name: req.params.condition}, {last_name: req.params.condition},{guest_phone: req.params.condition},{guest_email: req.params.condition}]
+                [db.Sequelize.Op.or] : [{id: req.params.condition}, {first_name: req.params.condition}, {last_name: req.params.condition},{guest_phone: req.params.condition},{guest_email: req.params.condition}]
             }
         }).then(function(dbGuest){
             
