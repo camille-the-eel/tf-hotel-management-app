@@ -15,15 +15,15 @@
 
         <h1 class="title is-1">RESERVATION DETAILS</h1>
         
-        <form action = "/roomsearch" method = "POST">
+        <form action = "/rooms" method = "POST">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">START DATE</label>
+                <label class="label">CHECK-IN</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input id="start-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "start-date">
+                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_in">
                     </p>
                 </div>
             </div>
@@ -31,12 +31,12 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">END DATE</label>
+                <label class="label">CHECK-OUT</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input id= "end-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "end-date">
+                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_out">
                     </p>
                 </div>
             </div>
@@ -272,7 +272,7 @@
             <tbody>
 
             <%for (var i = 0; i < Rooms.length; i++){%>
-
+        
                 <tr>
                 <td><%=Rooms[i].id%></td>
                 <td><%=Rooms[i].price_per_night%></td>
@@ -299,11 +299,20 @@
                 </tr>
 
             <%}%>
-         
+                <!-- <tr>
+                    <td>107</td>
+                    <td>150.00</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>QUEEN</td>
+                    <td>NO</td>
+                    <td>NO</td>
+                    <td>NO</td>
+                    <td>NO</td>
+                </tr> -->
             </tbody>
         </table>
     </div>
-
 
         <div class = "columns absolute">
             <div class = "column">
