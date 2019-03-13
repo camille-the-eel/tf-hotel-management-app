@@ -6,7 +6,11 @@ $(document).ready(function () {
     var guestcontainer = $(".guestContent");
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
+
     var reservationtable = $("#reservationtable");
+
+    var resroomscontainer = $(".room-search");
+
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -126,6 +130,7 @@ $(document).ready(function () {
 
     });
 
+
     $(".reservbyreserv").on("click", function(event){
         event.preventDefault();
         var condition = {
@@ -154,6 +159,16 @@ $(document).ready(function () {
                 console.log(data);
             });
     });
+
+    $("#newreservationsearch").on("click", function(event){
+        $.ajax({
+            url : "/reservation/new/roomsearch"
+        }).then(function(data){
+            resroomscontainer.html(data);
+        });
+    });
+
+
 
 });
 
