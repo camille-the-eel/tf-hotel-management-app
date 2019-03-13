@@ -6,6 +6,7 @@ $(document).ready(function () {
     var guestcontainer = $(".guestContent");
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
+    var reservationtable = $("#reservationtable");
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -80,10 +81,6 @@ $(document).ready(function () {
         
         console.log("this is the parameter " + parameter);  
         
-
-
- 
-
         $.ajax({
             url : "/api/guests/" + parameter,
         }).then(function(data){
@@ -129,6 +126,34 @@ $(document).ready(function () {
 
     });
 
+    $(".reservbyreserv").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            id: $("#reservnumber").val().trim(),
+            date_in: $("#reservdatein").val().trim(),
+            date_out: $("#reservdateout").val().trim()
+        }
+        $.ajax({   
+        url: "/api/reservations/reservation/search?id=" + condition.id + "&date_in="+ condition.date_in +"&date_out="+ condition.date_out
+        }).then(function(data){
+        console.log(data);
+        });
+    });
+
+    $("#reservbyguest").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            first_name: $("#reservfirstname").val().trim(),
+            last_name: $("#reservlastname").val().trim(),
+            guest_phone: $("#reservationphone").val().trim(),
+            guest_email: $("#reservationemail").val().trim(),
+            }
+            $.ajax({
+                url: "/api/reservations/guests/search?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
+            }).then(function(data){
+                console.log(data);
+            });
+    });
 
 });
 

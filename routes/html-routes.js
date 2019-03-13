@@ -1,11 +1,12 @@
 var db = require("../models");
-var moment = require('moment-timezone');
+var moment = require('moment');
 
 
 module.exports = function (app) {
     app.get("/", function (req, res) {
 
-        console.log(req.body);
+        
+
         var cur = {
             query: {
                 cur_date: moment(new Date).format('YYYY-MM-DD')
