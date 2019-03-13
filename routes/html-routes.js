@@ -1,5 +1,5 @@
 var db = require("../models");
-var moment = require('moment-timezone');
+var moment = require('moment');
 
 
 module.exports = function (app) {
@@ -64,7 +64,7 @@ module.exports = function (app) {
                                         Reservation2: dbReserv,
                                         Room: dbRooms,
                                         Room2 : dbRooms2,
-                                        reservation_room: dbReservationRoom    
+                                        Reservation_Room: dbReservationRoom    
                                 })
                             });
                         // console.log("reservation room data: ", dbReservationRoom);                     
@@ -77,10 +77,38 @@ module.exports = function (app) {
    
     //CREATE NEW RESERVATION HTML PAGE ROUTE
     app.get("/reservation/new", function (req, res) {
-    
-    db.Rooms.findAll({}).then(function (dbRooms) {
-        res.render("new-reservation", { rooms: dbRooms });
-    });
+
+        db.Reservation.findAll({
+            include: [db.Guest]
+        }).then(function (dbReservation) {
+            db.Guest.findAll({
+
+            }).then(function (dbGuest) {
+                db.Rooms.findAll({
+
+                }).then(function (dbRooms) {
+                    db.Reservation_Room.findAll({
+                        include: {
+                            model: db.Reservation,
+                            include: [db.Guest]
+                        }
+                    }).then(function (dbReservationRoom) {
+                        res.render("new-reservation", {
+                            Guest: dbGuest,
+                            Reserrvation: dbReservation,
+                            Rooms: dbRooms,
+                            Reservation_Room: dbReservationRoom
+                        });
+                    });
+                });
+            });
+        });
+
+        // db.Reservation.findAll({
+        //     include : [db.Guest, db.Rooms]
+        // }).then(function (dbRooms) {
+        //     res.render("new-reservation", { Rooms: dbRooms });
+        // });
 
     });
 
@@ -98,7 +126,7 @@ module.exports = function (app) {
                 in_house: 1
             }
         }).then(function (dbReservationRoom) {
-            res.render("partialCurrent", { layout: false, reservation_room: dbReservationRoom });
+            res.render("partialCurrent", { layout: false, Reservation_Room: dbReservationRoom });
         })
     });
 
