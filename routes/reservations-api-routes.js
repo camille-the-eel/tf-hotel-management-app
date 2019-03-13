@@ -55,39 +55,9 @@ module.exports = function(app){
 
         db.Guest.findAll({
             where: validWhere,
-            include : db.Reservation
-           
+            include: db.Guest
         }).then(function(dbGuest){
             res.json(dbGuest);
-        });
-    });
-
-    app.get("/api/reservations/canceled/search", function(req, res){
-
-        var validWhere = {}
-
-        if (req.query.id){
-            validWhere.id = req.query.id
-        }
-        if (req.query.canceled){
-            validWhere.canceled = req.query.canceled
-        }
-        
-        db.Reservation_Room.findAll({
-            where : {
-                canceled : true
-            },
-           
-            include: [{
-                model: db.Reservation,
-                where: {
-                    id: req.query.id
-                },
-                include: [db.Guest]
-            }]
-            
-        }).then(function(dbCanceled){
-            res.json(dbCanceled);
         });
     });
         
