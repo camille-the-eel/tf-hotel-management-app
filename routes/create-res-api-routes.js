@@ -1,7 +1,11 @@
 var db = require("../models");
 var moment = require('moment');
+const { checkSchema } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 
 module.exports = function (app) {
+
+    //ROOM AVAILABILITY SEARCH FOR NEW RESERVATION | FORM METHOD = 
     app.get("/reservation/new/roomsearch", function (req, res) {
         db.Reservation.findAll({
             include: [db.Rooms],
@@ -9,8 +13,13 @@ module.exports = function (app) {
                 
             }
         }).then(function (dbRoomsAvailable) {
-            // res.render("partialCurrent", { layout: false, reservation_room: dbReservationRoom });
-        })
+
+        });
     });
 
+    //CREATE RESERVATION BUTTON
+    //GUEST INFORMATION | POST
+    app.post("/reservation/new/create", function (req, res) {
+
+    });
 };
