@@ -161,6 +161,7 @@ $(document).ready(function () {
     });
 
     $("#newreservationsearch").on("click", function(event){
+        event.preventDefault();
         $.ajax({
             url : "/reservation/new/roomsearch"
         }).then(function(data){

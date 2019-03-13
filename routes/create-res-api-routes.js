@@ -7,13 +7,15 @@ module.exports = function (app) {
 
     //ROOM AVAILABILITY SEARCH FOR NEW RESERVATION | FORM METHOD = 
     app.get("/reservation/new/roomsearch", function (req, res) {
+        console.log("HERE!");
         db.Reservation.findAll({
-            include: [db.Rooms],
-            where: {
-                
-            }
-        }).then(function (dbRoomsAvailable) {
-
+            attributes: ['date_in', 'date_out', 'RoomId']
+        }).then(function (dbRooms) {
+        
+        
+          res.json(dbRooms);
+          console.log(dbRooms);
+          console.log("Ahhhh", dbRooms[0].date_in);
         });
     });
 
