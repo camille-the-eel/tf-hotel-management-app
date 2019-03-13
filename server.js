@@ -13,11 +13,7 @@ app.set("view engine", "EJS");
 require("./routes/html-routes")(app);
 require("./routes/guests-api-routes")(app);
 require("./routes/reservations-api-routes")(app);
-
-require("./routes/rooms-api-routes")(app);
-
 require("./routes/create-res-api-routes")(app);
-
 
 db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
