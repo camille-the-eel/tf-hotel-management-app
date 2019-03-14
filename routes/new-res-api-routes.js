@@ -139,8 +139,9 @@ module.exports = function (app) {
     });
 
     //CREATE RESERVATION BUTTON
-    //GUEST INFORMATION | POST
-    app.post("/reservation/new/create", function (req, res) {
 
+    //CREATE NEW GUEST | POST
+    app.post("/reservation/new/guest", function (req, res) {
+        
     });
 };

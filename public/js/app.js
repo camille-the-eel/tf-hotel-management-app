@@ -333,7 +333,7 @@ $(document).ready(function () {
     var resroomscontainer = $(".room-search");
     var prevguestcontainer = $(".previous-guest-search");
 
-    //CREATING NEW RESERVATION SEARCH PARAMETERS
+    //CREATE NEW RESERVATION SEARCH PARAMETERS
     $("#newreservationsearch").on("click", function(event){
         event.preventDefault();
         var condition = {
@@ -347,7 +347,7 @@ $(document).ready(function () {
         });
     });
 
-    //PREVIOUS GUEST SEARCH FOR CREATING NEW RESERVATION
+    //PREVIOUS GUEST SEARCH FOR CREATE NEW RESERVATION
     $(".previous-guest-search").on("click", function(event){
         event.preventDefault();
         var condition = {
