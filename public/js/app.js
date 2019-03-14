@@ -363,9 +363,6 @@ $(document).ready(function () {
             prevguestcontainer.html(data);
         });
     });
-    
-
-
 
 });
 
