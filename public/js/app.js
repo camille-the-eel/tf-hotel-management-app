@@ -2,15 +2,14 @@
 //this is where we do our jquery onclicks and also the ajax put/post to push the info into our api arrays
 
 $(document).ready(function () {
-    //GUEST
+
+//===================================================================
+//INDEX HTML PAGE 
+
+    //CONTAINERS
     var guestcontainer = $(".guestContent");
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
-
-    var reservationtable = $("#reservationtable");
-
-    var resroomscontainer = $(".room-search");
-
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -293,6 +292,7 @@ $(document).ready(function () {
         });
     });
 
+    //ROOM SEARCH
     $(".roomsearch").on("click", function(event){
         event.preventDefault();
         roomscontainer.empty();
@@ -308,7 +308,6 @@ $(document).ready(function () {
             jacuzzi: $("#jacuzzi").val(),
             balcony: $("#balcony").val(),
             smoke: $("#smoke").val()
-
         }
 
 
@@ -334,10 +333,22 @@ $(document).ready(function () {
         });
     });
 
+//===================================================================
+//NEW-RESERVATION HTML PAGE 
+
+    //CONTAINERS
+    var resroomscontainer = $(".room-search");
+    var prevguestcontainer = $(".previous-guest-search");
+
+    //CREATE NEW RESERVATION SEARCH PARAMETERS
     $("#newreservationsearch").on("click", function(event){
-        
+        event.preventDefault();
+        var condition = {
+            startDate: $("#start-date").val().trim(),
+            endDate: $("#end-date").val().trim(),
+            }
         $.ajax({
-            url : "/reservation/new/roomsearch"
+            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
         }).then(function(data){
             resroomscontainer.html(data);
         });
@@ -353,6 +364,22 @@ $(document).ready(function () {
     
 
 
+    //PREVIOUS GUEST SEARCH FOR CREATE NEW RESERVATION
+    $(".previous-guest-search").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            first_name: $("#first-name").val().trim(),
+            last_name: $("#last-name").val().trim(),
+            guest_phone: $("#guest-phone").val().trim(),
+            guest_email: $("#guest-email").val().trim()
+            }
+        $.ajax({
+            url: "/reservation/new/previousguestsearch?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
+        }).then(function(data){
+            console.log(data);
+            prevguestcontainer.html(data);
+        });
+    });
 
 });
 

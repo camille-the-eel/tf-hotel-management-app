@@ -17,9 +17,9 @@
             <h1 class="title">GUESTS</h1>
             <br>
             <h1 class="title is-inline ">
-                <strong id="currentGuests" class = "hoverit" data-target ="partialCurrent">CURRENT</strong>
+                <strong id="currentGuests" class = "hoverit" data-target ="current-guests">CURRENT</strong>
                 |
-                <strong id="searchAllGuests" class = "hoverit" data-target ="partialAllGuests">SEARCH ALL</strong>
+                <strong id="searchAllGuests" class = "hoverit" data-target ="all-guests">SEARCH ALL</strong>
             </h1>
         </section>
         <section class="section">
@@ -84,7 +84,7 @@
                 <div class = "guestContent">
                 <!--GUEST TABLE GOES HERE-->
                 
-                <% include partialCurrent %>
+                <% include partials/current-guests %>
 
 
                 </div>
@@ -286,7 +286,7 @@
                     <!--TABLE FOR ARRIVALS AND DEPARTURES -->
                     <div class = "reservationContent">
 
-                    <% include arrivals %>
+                    <% include partials/arrivals %>
                     
                    </div>
         </section>
@@ -431,7 +431,7 @@
         <!--ROOMS TABLE GOES HERE-->
         
 
-        <% include available %>
+        <% include partials/available %>
 
                 </div>
     </div>
