@@ -15,15 +15,15 @@
 
         <h1 class="title is-1">RESERVATION DETAILS</h1>
         
-        <form action = "/rooms" method = "POST">
+        <form action = "/roomsearch" method = "POST">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">CHECK-IN</label>
+                <label class="label">START DATE</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_in">
+                         <input id="start-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "start-date">
                     </p>
                 </div>
             </div>
@@ -31,12 +31,12 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">CHECK-OUT</label>
+                <label class="label">END DATE</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="YYYY-MM-DD" name = "date_out">
+                            <input id= "end-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "end-date">
                     </p>
                 </div>
             </div>
