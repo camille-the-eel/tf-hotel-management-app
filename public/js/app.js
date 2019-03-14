@@ -260,6 +260,7 @@ $(document).ready(function () {
     });
     $(".cancelreserv").on("click", function(event){
         event.preventDefault();
+        $(".reservtablebody").empty();
 
         var condition = {
 
@@ -267,30 +268,30 @@ $(document).ready(function () {
             canceled: $("#reservationiscanceled").val()
 
         }
-        console.log(condition.canceled);
+        // console.log(condition.canceled);
         $.ajax({
             url: "/api/reservations/canceled/search?id=" +  condition.id + "&canceled="+condition.canceled
         }).then(function(data){
-            console.log(data);
-
+            // console.log(data);
+            
             for (var i = 0; i < data.length; i ++){
-                for (var j = 0; j < data[i].Reservation.length; j++){
+                console.log(data[i].Reservation);
+                
                     
-                    console.log(data[i].Reservation[j].id);
+                    
                    
 
                     $(".reservtablebody").append("<tr>");
-                    $(".reservtablebody").append("<td>" + data[i].Reservation[j].id + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].first_name + " " + data[i].last_name+"</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation[j].date_in + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation[j].date_out + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation[j].RoomId + "</td>" );
-            
+                    $(".reservtablebody").append("<td>" + data[i].Reservation.id + "</td>" );
+                    $(".reservtablebody").append("<td>" + data[i].Reservation.Guest.first_name + " " + data[i].Reservation.Guest.last_name+"</td>" );
+                    $(".reservtablebody").append("<td>" + data[i].Reservation.date_in + "</td>" );
+                    $(".reservtablebody").append("<td>" + data[i].Reservation.date_out + "</td>" );
+                    $(".reservtablebody").append("<td>" + data[i].Reservation.RoomId + "</td>" );
                     $(".reservtablebody").append("</tr>");
 
 
         
-                }
+                
               
                 
             }
