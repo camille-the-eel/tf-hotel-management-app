@@ -7,6 +7,7 @@ module.exports = function (app) {
 //===========================================================================
 //RENDERING IN EJS PAGE VIEWS
 
+    //INDEX HTML PAGE
     app.get("/", function (req, res) {
 
         var cur = {
@@ -76,14 +77,14 @@ module.exports = function (app) {
         });
     });
    
-    //CREATE NEW RESERVATION HTML PAGE ROUTE
+    //CREATE NEW RESERVATION HTML PAGE
     app.get("/reservation/new", function (req, res) {
 
         db.Reservation.findAll({
             include: [db.Guest]
         }).then(function (dbReservation) {
             db.Guest.findAll({
-
+                
             }).then(function (dbGuest) {
                 db.Rooms.findAll({
                     where : {
@@ -98,7 +99,7 @@ module.exports = function (app) {
                     }).then(function (dbReservationRoom) {
                         res.render("new-reservation", {
                             Guest: dbGuest,
-                            Reserrvation: dbReservation,
+                            Reservation: dbReservation,
                             Rooms: dbRooms,
                             Reservation_Room: dbReservationRoom
                         });
@@ -107,67 +108,6 @@ module.exports = function (app) {
             });
         });
     });
-
-//===========================================================================
-//RENDERING IN EJS PARTIALS FOR NEW-RESERVATION HTML
-
-    //NEW RESERVATION SEARCH PARTIAL
-    // app.get("/reservation/new/", function (req, res, next) {
-
-    //     db.Reservation.findAll({
-    //         include: [db.Rooms]
-    //     }).then(function (dbRooms) {
-
-    //         var startDate = req.query.start_date;
-    //         var endDate = req.query.end_date;
-    //         var validRooms = [];
-
-    //         for (i = 0; i < dbRooms.length; i++) {
-    //             if (moment(startDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[)') === false && moment(endDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[]') === false) {
-    //                 // console.log("ROOM AVAILABLE: ID: ", dbRooms[i].id, " Date In: ", dbRooms[i].date_in, " Date Out: ", dbRooms[i].date_out);
-    //                 validRooms.push(dbRooms[i]);
-    //                 // console.log("Success!", " startDate: ", startDate, " endDate: ", endDate, " date_in: ", dbRooms[i].date_in, " date_out: ", dbRooms[i].date_out);
-    //             } 
-    //         }
-    //         console.log(validRooms);
-    //         res.render("new-reservation", {layout: false, Rooms : validRooms});
-    //         // res.json(dbRooms);
-
-    // });
-
-    //NEW RESERVATION SEARCH PARTIAL
-    app.get("/reservation/new/roomsearch", function (req, res) {
-        var startDate = req.query.start_date;
-        var endDate = req.query.end_date;
-
-        db.Reservation.findAll({
-            include: [db.Rooms], 
-            where: {
-                [db.Sequelize.Op.and]: [
-                    {
-                        date_in: { 
-                            [db.Sequelize.Op.notBetween] : [
-                                { value: startDate, inclusive: true} , {value: endDate, inclusive: false }
-                            ] 
-                        }   
-                    },
-                    {
-                        date_out: { 
-                            [db.Sequelize.Op.notBetween] : [
-                                { value: startDate, inclusive: true} , {value: endDate, inclusive: true }
-                            ] 
-                        }   
-                    }
-                ]
-            }
-        }).then(function (dbRooms) {
-
-            console.log(dbRooms);
-            res.render("partials/new-reservation-search", {layout: false, Rooms : dbRooms});
-            // res.json(dbRooms);
-
-    });
-});
 
 //===========================================================================
 //RENDERING IN EJS PARTIALS FOR INDEX HTML

@@ -156,7 +156,7 @@
         </form>
 
         <h1 class="title is-1">CUSTOMER DETAILS</h1>
-
+    <form>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">FIRST NAME</label>
@@ -164,7 +164,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="FIRST NAME" name= "first_name">
+                        <input class="input" type="text" placeholder="FIRST NAME" name= "first-name" id="first-name">
                     </p>
                 </div>
             </div>
@@ -177,7 +177,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="LAST NAME" name= "last_name">
+                        <input class="input" type="text" placeholder="LAST NAME" name= "last-name" id="last-name">
                     </p>
                 </div>
             </div>
@@ -190,7 +190,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="EMAIL" name= "guest_email">
+                        <input class="input" type="text" placeholder="EMAIL" name= "guest-email" id="guest-email">
                     </p>
                 </div>
             </div>
@@ -203,11 +203,18 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control ">
-                        <input class="input" type="text" placeholder="PHONE #" name= "guest_phone">
+                        <input class="input" type="text" placeholder="PHONE #" name= "guest-phone" id="guest-phone">
                     </p>
                 </div>
             </div>
         </div>
+
+        <div class="field ">
+            <div class = "control">
+                    <input class = "button previous-guest-search" type = "submit" value = "SEARCH" >
+            </div>
+        </div>
+    </form>
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -250,24 +257,34 @@
         
     </div>
 
-    <div>
-    <h1 class="title is-1 is-pulled-left">ROOMS AVAILABLE</h1>
+    <div class="room-search-table">
 
-        <div class = "room-search">
+        <h1 class="title is-1 is-pulled-left">ROOMS AVAILABLE</h1>
+        <div class="room-search">
             <!--ROOMS TABLE GOES HERE-->
             <% include partials/new-reservation-search %>
         </div>
 
+    </div>
+
+    <div class="guest-search-table">
+        <h1 class="title is-1 is-pulled-left">PREVIOUS GUESTS</h1>
+        <div class="previous-guest-search">
+            <!--GUEST TABLE GOES HERE-->
+            <% include partials/previous-guests %>
+        </div>
+    </div>
+        
+    <div class="res-info" >
         <div class = "columns absolute">
             <div class = "column">
                 <h1 class = "title is-3">ROOM #100</h1>
                 <h1 class = "title is-3"> PRICE $200 </h1> 
             </div>
             <div class = "column">
-            <input class="button is-large" type="submit" value="CREATE RESERVATION">
+                <input class="button is-large" type="submit" value="CREATE RESERVATION">
             </div>
         </div>
-
     </div>
 </div>
 

@@ -1,0 +1,36 @@
+<div class= "previous-guest-search">
+        <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>PHONE NUMBER</th>
+                    <th>EMAIL</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <%for (var i = 0; i < Guest.length; i++){%>
+        
+                <tr>
+                <td><%=Guest[i].first_name%> <%=Guest[i].last_name%></td>
+                <td><%=Guest[i].guest_phone%></td>
+                <td><%=Guest[i].guest_email%></td>
+                <td>
+                    <form action="/api/select-guest" method ="POST">
+                    <div class="field is-horizontal">
+                        <div class="field-body">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input id="select-guest" class="button" type ="submit" value ="SELECT GUEST">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </form>
+                </td>
+                </tr>
+
+            <%}%>
+            </tbody>
+        </table>
+    </div>
