@@ -334,7 +334,7 @@ $(document).ready(function () {
             }
         $.ajax({
             // url : "/reservation/new/roomsearch"
-            url : "/reservation/new?start_date=" + condition.startDate + "&end_date=" + condition.endDate
+            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
             // url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
         }).then(function(data){
             resroomscontainer.html(data);
