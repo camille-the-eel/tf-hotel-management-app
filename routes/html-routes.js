@@ -3,15 +3,18 @@ var moment = require('moment');
 
 
 module.exports = function (app) {
-    app.get("/", function (req, res) {
 
-        
+//===========================================================================
+//RENDERING IN EJS PAGE VIEWS
+
+    app.get("/", function (req, res) {
 
         var cur = {
             query: {
                 cur_date: moment(new Date).format('YYYY-MM-DD')
             }
         };
+
         db.Reservation.findAll({
             include:[db.Guest],
             where: {
@@ -23,8 +26,6 @@ module.exports = function (app) {
                 }
             }
         }).then(function (dbReservation) {
-            // res.render("index", {reservation : dbReservation});
-            // console.log("reservation data: ", dbReservation);
             db.Guest.findAll({}).then(function (dbGuest) {
                 // console.log("guest data: ", dbGuest);
                 db.Rooms.findAll({
@@ -67,8 +68,7 @@ module.exports = function (app) {
                                         Room2 : dbRooms2,
                                         Reservation_Room: dbReservationRoom    
                                 })
-                            });
-                        // console.log("reservation room data: ", dbReservationRoom);                     
+                            });                 
                         });
                     });
                 });
@@ -108,7 +108,10 @@ module.exports = function (app) {
         });
     });
 
-    //CREATE NEW RESERVATION HTML PAGE ROUTE
+//===========================================================================
+//RENDERING IN EJS PARTIALS FOR NEW-RESERVATION HTML
+
+    //NEW RESERVATION SEARCH PARTIAL
     // app.get("/reservation/new/", function (req, res, next) {
 
     //     db.Reservation.findAll({
@@ -132,6 +135,7 @@ module.exports = function (app) {
 
     // });
 
+    //NEW RESERVATION SEARCH PARTIAL
     app.get("/reservation/new/search", function (req, res) {
         var startDate = req.query.start_date;
         var endDate = req.query.end_date;
