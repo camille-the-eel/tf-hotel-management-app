@@ -136,7 +136,7 @@ module.exports = function (app) {
     // });
 
     //NEW RESERVATION SEARCH PARTIAL
-    app.get("/reservation/new/search", function (req, res) {
+    app.get("/reservation/new/roomsearch", function (req, res) {
         var startDate = req.query.start_date;
         var endDate = req.query.end_date;
 
