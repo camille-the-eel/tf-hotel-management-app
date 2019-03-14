@@ -332,7 +332,6 @@ $(document).ready(function () {
             startDate: $("#start-date").val().trim(),
             endDate: $("#end-date").val().trim(),
             }
-
         $.ajax({
             // url : "/reservation/new/roomsearch"
             url : "/reservation/new?start_date=" + condition.startDate + "&end_date=" + condition.endDate
