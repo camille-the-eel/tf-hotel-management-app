@@ -295,10 +295,12 @@ $(document).ready(function () {
 
     $(".roomsearch").on("click", function(event){
         event.preventDefault();
+        roomscontainer.empty();
 
         var condition = {
             id : $("#roomID").val().trim(),
-            price_per_night: $("#pricepernight").val().trim(),
+            min_price: $("#minprice").val(),
+            max_price: $("#maxprice").val(),
             bed_type: $("#bedtype").val().trim(),
             number_of_beds: $("#numberofbeds").val().trim(),
             max_occupancy: $("#maxoccupancy").val().trim(),
@@ -308,23 +310,27 @@ $(document).ready(function () {
             smoke: $("#smoke").val()
 
         }
+
+
         $.ajax({
-            url: "api/room/search?id="+condition.id+"&price_per_night="+condition.price_per_night+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
+            url: "/api/room/search?id="+condition.id+"&max_price="+condition.max_price+"&min_price="+condition.min_price+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
+            
         }).then(function(data){
-            for (var i = 0; i < data.length; i ++){
+
+            roomscontainer.append("<table class='table is-fullwidth'> <thead> <tr><th>ROOM #</th><th>PRICE/NIGHT</th><th># OF BEDS</th> <th>BED TYPE</th> </tr></thead><tbody class = 'roomsbodycontainer'></tbody> </table>");
+            
+            for (var i = 0; i < data.length; i++){
+
+                $(".roomsbodycontainer").append("<tr>");
+                $(".roomsbodycontainer").append("<td>" + data[i].id+"</td>");
+                $(".roomsbodycontainer").append("<td>" + data[i].price_per_night+"</td>");
+                $(".roomsbodycontainer").append("<td>" + data[i].number_of_beds+"</td>");
+                $(".roomsbodycontainer").append("<td>" + data[i].bed_type+"</td>");
+            }   
 
 
-                console.log(data[i].id);
 
-
-
-
-
-
-
-
-
-            }
+            
         });
     });
 
@@ -336,6 +342,13 @@ $(document).ready(function () {
             resroomscontainer.html(data);
         });
     });
+
+    $("#check-in").on("click", function(event){
+
+        $.ajax({
+            
+        }).then(function(){});
+    })
 
     
 

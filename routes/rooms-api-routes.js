@@ -5,13 +5,26 @@ module.exports = function(app){
     app.get("/api/room/search", function(req, res){
 
         var validWhere = {}
+      
 
         if (req.query.id){
             validWhere.id = req.query.id;
 
         }
-        if (req.query.price_per_night){
-            validWhere.price_per_night = req.query.price_per_night;
+        if (req.query.min_price && req.query.max_price){
+            validWhere.price_per_night = {
+                [db.Sequelize.Op.between]: [req.query.min_price, req.query.max_price]
+            }
+        }
+        if (req.query.min_price){
+            validWhere.price_per_night = {
+                [db.Sequelize.Op.between]: [0, req.query.min_price]
+            }
+        }
+        if (req.query.max_price){
+            validWhere.price_per_night = {
+                [db.Sequelize.Op.between]: [0, req.query.max_price]
+            }
         }
         if (req.query.bed_type){
             validWhere.bed_type = req.query.bed_type;
@@ -34,13 +47,14 @@ module.exports = function(app){
         if (req.query.smoke){
             validWhere.smoke = req.query.smoke;
         }
-
+        console.log(validWhere);
         db.Rooms.findAll({
             where : validWhere
         }).then(function(dbRoom){
-            res.json(dbRoom)
+            res.json(dbRoom);
         });
     });
+
 
 
 };

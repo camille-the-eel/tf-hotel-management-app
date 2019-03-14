@@ -308,6 +308,7 @@
 
         <form>
         <div class="field is-horizontal">
+        
             <div class="field-body">
 
                 <div class="field">
@@ -316,9 +317,31 @@
                     </p>
                 </div>
 
+                <div class="field-label is-normal">
+                    <label class="label">Price</label>
+                </div>
                 <div class="field">
                     <p class="control is-expanded">
-                        <input class="input" type="text" id = "pricepernight" name="price_per_night" placeholder="PRICE/NIGHT">
+                    <div class="select">
+                    <select id = "minprice" name = "min_price">
+                    <option value = "">Min-price</option>
+                    <option value = "99">99</option>
+                    <option value = "199">199</option>
+                    <option value = "299">299</option>
+                    <option value = "399">399</option>
+                    <option value = "499">499</option>
+                    </select>
+                  </div>
+                  <div class="select">
+                  <select id = "maxprice" name = "max_price">
+                    <option value = "">Max-price</option>
+                    <option value = "99">99</option>
+                    <option value = "199">199</option>
+                    <option value = "299">299</option>
+                    <option value = "399">399</option>
+                    <option value = "499">499</option>
+                  </select>
+                </div>
                     </p>
                 </div>
                 
