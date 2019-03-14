@@ -28,12 +28,12 @@
                 <td><%=Rooms[i].balcony%></td>
                 <td><%=Rooms[i].smoke%></td>
                 <td>
-                    <form action = "/api/checkIn" method = "POST">
+                    <form action ="/api/select-room" method ="POST">
                     <div class="field is-horizontal">
                         <div class="field-body">
                         <div class="field has-addons">
                             <div class = "control">
-                                <input id = "check-in" class = "button" type = "submit" value = "SELECT ROOM">
+                                <input id="select-room" class="button" type="submit" value="SELECT ROOM">
                             </div>
                         </div>
                         </div>
