@@ -105,25 +105,66 @@ module.exports = function (app) {
     //         });
     //     });
 
-    app.get("/reservation/new/", function (req, res, next) {
+        app.get("/reservation/new", function (req, res) {
+            db.Reservation.findAll({
+                include: [db.Rooms]
+            }).then(function (data) {
+                res.render("new-reservation");
+            });
+        });
+
+    //CREATE NEW RESERVATION HTML PAGE ROUTE
+    // app.get("/reservation/new/", function (req, res, next) {
+
+    //     db.Reservation.findAll({
+    //         include: [db.Rooms]
+    //     }).then(function (dbRooms) {
+
+    //         var startDate = req.query.start_date;
+    //         var endDate = req.query.end_date;
+    //         var validRooms = [];
+
+    //         for (i = 0; i < dbRooms.length; i++) {
+    //             if (moment(startDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[)') === false && moment(endDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[]') === false) {
+    //                 // console.log("ROOM AVAILABLE: ID: ", dbRooms[i].id, " Date In: ", dbRooms[i].date_in, " Date Out: ", dbRooms[i].date_out);
+    //                 validRooms.push(dbRooms[i]);
+    //                 // console.log("Success!", " startDate: ", startDate, " endDate: ", endDate, " date_in: ", dbRooms[i].date_in, " date_out: ", dbRooms[i].date_out);
+    //             } 
+    //         }
+    //         console.log(validRooms);
+    //         res.render("new-reservation", {layout: false, Rooms : validRooms});
+    //         // res.json(dbRooms);
+
+    // });
+
+    app.get("/reservation/new/search", function (req, res) {
+        var startDate = req.query.start_date;
+        var endDate = req.query.end_date;
 
         db.Reservation.findAll({
-            include: [db.Rooms]
+            include: [db.Rooms], 
+            where: {
+                [db.Sequelize.Op.and]: [
+                    {
+                        date_in: { 
+                            [db.Sequelize.Op.notBetween] : [
+                                { value: startDate, inclusive: true} , {value: endDate, inclusive: false }
+                            ] 
+                        }   
+                    },
+                    {
+                        date_out: { 
+                            [db.Sequelize.Op.notBetween] : [
+                                { value: startDate, inclusive: true} , {value: endDate, inclusive: true }
+                            ] 
+                        }   
+                    }
+                ]
+            }
         }).then(function (dbRooms) {
 
-            var startDate = req.query.start_date;
-            var endDate = req.query.end_date;
-            var validRooms = [];
-
-            for (i = 0; i < dbRooms.length; i++) {
-                if (moment(startDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[)') === false && moment(endDate).isBetween(dbRooms[i].date_in, dbRooms[i].date_out, 'day','[]') === false) {
-                    // console.log("ROOM AVAILABLE: ID: ", dbRooms[i].id, " Date In: ", dbRooms[i].date_in, " Date Out: ", dbRooms[i].date_out);
-                    validRooms.push(dbRooms[i]);
-                    // console.log("Success!", " startDate: ", startDate, " endDate: ", endDate, " date_in: ", dbRooms[i].date_in, " date_out: ", dbRooms[i].date_out);
-                } 
-            }
-            console.log(validRooms);
-            res.render("new-reservation", {layout: false, Rooms : validRooms});
+            console.log(dbRooms);
+            res.render("partial-new-reservation", {layout: false, Rooms : dbRooms});
             // res.json(dbRooms);
 
     });
