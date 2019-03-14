@@ -289,20 +289,7 @@ $(document).ready(function () {
                     $(".reservtablebody").append("<td>" + data[i].Reservation.RoomId + "</td>" );
                     $(".reservtablebody").append("</tr>");
 
-
-        
-                
-              
-                
             }
-
-            
-
-
-
-
-
-
         });
     });
 
@@ -324,7 +311,20 @@ $(document).ready(function () {
         $.ajax({
             url: "api/room/search?id="+condition.id+"&price_per_night="+condition.price_per_night+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
         }).then(function(data){
-            console.log(data);
+            for (var i = 0; i < data.length; i ++){
+
+
+                console.log(data[i].id);
+
+
+
+
+
+
+
+
+
+            }
         });
     });
 
