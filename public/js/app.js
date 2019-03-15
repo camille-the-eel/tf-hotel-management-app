@@ -267,13 +267,13 @@ $(document).ready(function () {
             for (var i = 0; i < data.length; i ++){
                 console.log(data[i].Reservation);
  
-                    $(".reservtablebody").append("<tr>");
-                    $(".reservtablebody").append("<td>" + data[i].Reservation.id + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation.Guest.first_name + " " + data[i].Reservation.Guest.last_name+"</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation.date_in + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation.date_out + "</td>" );
-                    $(".reservtablebody").append("<td>" + data[i].Reservation.RoomId + "</td>" );
-                    $(".reservtablebody").append("</tr>");
+                $(".reservtablebody").append("<tr>");
+                $(".reservtablebody").append("<td>" + data[i].Reservation.id + "</td>" );
+                $(".reservtablebody").append("<td>" + data[i].Reservation.Guest.first_name + " " + data[i].Reservation.Guest.last_name+"</td>" );
+                $(".reservtablebody").append("<td>" + data[i].Reservation.date_in + "</td>" );
+                $(".reservtablebody").append("<td>" + data[i].Reservation.date_out + "</td>" );
+                $(".reservtablebody").append("<td>" + data[i].Reservation.RoomId + "</td>" );
+                $(".reservtablebody").append("</tr>");
             }
         });
     });
@@ -344,7 +344,6 @@ $(document).ready(function () {
 
     $(document).on("click", ".check-in", function(event){
 
-        
         var id = $(this).attr("data");
         $(this).addClass("clicked");
 
@@ -354,7 +353,6 @@ $(document).ready(function () {
             data: {in_house: 0}
         }).then(function(data){
 
-
         });
     });
 
@@ -362,7 +360,6 @@ $(document).ready(function () {
     $(document).on("click", ".check-out", function(event){
       
         var id = $(this).attr("data");
-
         console.log(id);
 
         $.ajax({
@@ -396,7 +393,7 @@ $(document).ready(function () {
     });
 
     //PREVIOUS GUEST SEARCH FOR CREATE NEW RESERVATION
-    $(".previous-guest-search").on("click", function(event){
+    $(".previous_guest_search").on("click", function(event){
         event.preventDefault();
         var condition = {
             first_name: $("#first_name").val().trim(),
@@ -415,23 +412,20 @@ $(document).ready(function () {
 
     // CURRENT TIME IN INDEX
     function currentTime (){
-    var sec = 1;
-    var date = moment().format("MMM Do YY");  
-    var time = moment().format('LT'); 
+        var sec = 1;
+        var date = moment().format("MMM Do YY");  
+        var time = moment().format('LT'); 
 
-    $("#date").text(date);
-    $("#time").text(time);
+        $("#date").text(date);
+        $("#time").text(time);
 
-    t = setTimeout(function() {
-        currentTime();
-    }, sec * 1000);	
+        t = setTimeout(function() {
+            currentTime();
+        }, sec * 1000);	
 
     };
     currentTime ();
    
-
-
-});
 
     //CREATE NEW GUEST
     $(".create_new_guest").on("submit", function(event){
@@ -443,9 +437,9 @@ $(document).ready(function () {
             guest_phone: $("#guest_phone").val().trim(),
             guest_email: $("#guest_email").val().trim(),
             guest_notes: $("#guest_notes").val().trim(),
-            credit_card_number: $("#credit_card_number").val().trim(),
-            credit_card_type: $("#credit_card_type").val().trim(),
-            credit_card_expiration: $("#credit_card_expiration").val().trim()
+            credit_card_number: parseInt.$("#credit_card_number").val().trim()
+            // credit_card_type: $("#credit_card_type").val().trim(),
+            // credit_card_expiration: $("#credit_card_expiration").val().trim()
         };
 
         $.ajax({
