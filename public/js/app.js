@@ -385,6 +385,4 @@ $(document).ready(function () {
         });
     });
 
-});
-
-//END DOC.READY
+}); //END DOC.READY
