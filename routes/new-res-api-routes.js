@@ -59,11 +59,7 @@ module.exports = function (app) {
     //CREATE RESERVATION BUTTON
 
     //CREATE NEW GUEST | POST
-    app.post("/reservation/new/createguest", 
-    // checkSchema ({
-       
-    // }), 
-    function (req, res) {
+    app.post("/reservation/new/createguest", function (req, res) {
         db.Guest.create({
             last_name: req.body.last_name,
             first_name: req.body.first_name,
@@ -74,7 +70,9 @@ module.exports = function (app) {
             credit_card_type: req.body.credit_card_type,
             credit_card_expiration: req.body.credit_card_expiration
         }).then(function(data) {
-            res.json( { newGuest : data });
+            console.log(req.body);
+            console.log(req.body.first_name);
+            res.json({ newGuest: data});
         })
     });
 };

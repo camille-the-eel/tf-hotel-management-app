@@ -37,11 +37,11 @@ module.exports = function(app){
     });
 
 
-    app.post("/api/guests/new", function(req, res){
-        db.Guest.create(req.body).then(function(dbGuest){
-            res.json(dbGuest);
-        });
-    });
+    // app.post("/api/guests/new", function(req, res){
+    //     db.Guest.create(req.body).then(function(dbGuest){
+    //         res.json(dbGuest);
+    //     });
+    // });
 
     app.delete("/api/guests/:id", function(req, res){
         db.Guest.destroy({
