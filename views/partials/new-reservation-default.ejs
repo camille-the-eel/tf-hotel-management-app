@@ -1,3 +1,4 @@
+<div class = "constrainer2">
 <div class= "room-search">
         <table class="table is-fullwidth">
             <thead>
@@ -18,15 +19,15 @@
             <%for (var i = 0; i < Room.length; i++){%>
         
                 <tr>
-                <td><%=Room[i].id%></td>
-                <td><%=Room[i].price_per_night%></td>
-                <td><%=Room[i].max_occupancy%></td>
-                <td><%=Room[i].number_of_beds%></td>
-                <td><%=Room[i].bed_type%></td>
-                <td><%=Room[i].adjoining%></td>
-                <td><%=Room[i].jacuzzi%></td>
-                <td><%=Room[i].balcony%></td>
-                <td><%=Room[i].smoke%></td>
+                <td width = "89px"><%=Room[i].id%></td>
+                <td width = "126px"><%=Room[i].price_per_night%></td>
+                <td width = "99px"><%=Room[i].max_occupancy%></td>
+                <td width = "103px"><%=Room[i].number_of_beds%></td>
+                <td width = "96px"><%=Room[i].bed_type%></td>
+                <td width = "111px"><%=Room[i].adjoining%></td>
+                <td width = "90px"><%=Room[i].jacuzzi%></td>
+                <td width = "102px"><%=Room[i].balcony%></td>
+                <td width = "82px"><%=Room[i].smoke%></td>
                 <td>
                     <form action ="/api/select-room" method ="POST">
                     <div class="field is-horizontal">
@@ -45,4 +46,5 @@
             
             </tbody>
         </table>
+    </div>
     </div>

@@ -1,17 +1,19 @@
 <% include partials/header %>
 <section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title is-inline">
-                T | F HOTELS
-            </h1>
-            <span class="is-pulled-right title">CURRENT MOMENTJS TIME GOES HERE</span>
-        </div>
+
+    <div class="hero-body ">
+        
+        <img src="/img/TFHotels_Logo.png" alt = "T | F HOTELS" width = "450px" >
+            <span class="is-pulled-right title dateandtime"><span id = "date"></span><span id = "time"></span></span>
+       
+
     </div>
 </section>
 
-<div class="columns has-text-centered ">
-    <div class="column is-one-third">
+<div class="columns has-text-centered">
+
+
+    <div class="column is-two-fifths">
         <h1 class="title is-1">RESERVATION DETAILS</h1>
         
         <form action = "/roomsearch" method = "POST">
@@ -40,6 +42,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -273,8 +276,14 @@
         
     </div>
 
+
+    <div class = "column relative">
     <div class="room-search-table">
-        <h1 class="title is-1 is-pulled-left">ROOMS AVAILABLE</h1>
+
+    <section class = "section header">
+        <h1 class="title is-1 ">ROOMS AVAILABLE</h1>
+    </section>
+
         <div class="room-search">
              <!--ROOMS TABLE GOES HERE-->
             <% if (Room) {%>
@@ -284,17 +293,18 @@
             <%}%>
         </div>
     </div>
-
+    
     <div class="guest-search-table">
-        <h1 class="title is-1 is-pulled-left">PREVIOUS GUESTS</h1>
+        <section class = "section header">
+        <h1 class="title is-1 ">PREVIOUS GUESTS</h1>
+        </section>
         <div class="previous-guest-search">
             <!--GUEST TABLE GOES HERE-->
             <% include partials/previous-guests %>
         </div>
     </div>
-        
+    <div class = "columns absolute">
     <div class="res-info" >
-        <div class = "columns absolute">
             <div class = "column">
                 <h1 class = "title is-3">ROOM #100</h1>
                 <h1 class = "title is-3"> PRICE $200 </h1> 
@@ -304,6 +314,11 @@
             </div>
         </div>
     </div>
+
+
+    </div>
+        
+    
 </div>
 
 <% include partials/footer %>

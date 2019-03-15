@@ -1,10 +1,11 @@
+<div class = "constrainer2">
 <div class= "previous-guest-search">
         <table class="table is-fullwidth">
             <thead>
                 <tr>
-                    <th>NAME</th>
-                    <th>PHONE NUMBER</th>
-                    <th>EMAIL</th>
+                    <th width = "189px">NAME</th>
+                    <th width = "123px">PHONE NUMBER</th>
+                    <th width = "326px">EMAIL</th>
                 </tr>
             </thead>
             <tbody>
@@ -12,9 +13,9 @@
             <%for (var i = 0; i < Guest.length; i++){%>
         
                 <tr>
-                <td><%=Guest[i].first_name%> <%=Guest[i].last_name%></td>
-                <td><%=Guest[i].guest_phone%></td>
-                <td><%=Guest[i].guest_email%></td>
+                <td width = "189px"><%=Guest[i].first_name%> <%=Guest[i].last_name%></td>
+                <td width = "123px"><%=Guest[i].guest_phone%></td>
+                <td width = "326px"><%=Guest[i].guest_email%></td>
                 <td>
                     <form action="/api/select-guest" method ="POST">
                     <div class="field is-horizontal">
@@ -33,4 +34,5 @@
             <%}%>
             </tbody>
         </table>
+    </div>
     </div>
