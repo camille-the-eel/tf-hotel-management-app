@@ -1,7 +1,7 @@
 var db = require("../models");
 var moment = require('moment');
-const { checkSchema } = require('express-validator/check');
-const { sanitizeBody } = require('express-validator/filter');
+const { check, validationResult } = require('express-validator/check');
+const { sanitize } = require('express-validator/filter');
 
 module.exports = function (app) {
 
@@ -56,10 +56,31 @@ module.exports = function (app) {
         });
     });
 
-    //CREATE RESERVATION BUTTON
-
     //CREATE NEW GUEST | POST
-    app.post("/reservation/new/createguest", function (req, res) {
+    app.post("/reservation/new/createguest", [
+
+        check('first_name')
+            .isLength({ min: 3, max: 50 })
+            .trim(),
+        check('last_name')
+            .isLength({ min: 2, max: 50 })
+            .trim(),
+        check('guest_phone')
+            .isMobilePhone(),
+        check('guest_email')
+            .isEmail()
+            .normalizeEmail(),
+        check('credit_card_number')
+            .isCreditCard(),
+        sanitize('notifyOnReply').toBoolean()
+
+    ], function (req, res) {
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() });
+        }
+
         db.Guest.create({
             last_name: req.body.last_name,
             first_name: req.body.first_name,
@@ -75,4 +96,8 @@ module.exports = function (app) {
             res.json({ newGuest: data});
         })
     });
+
+
+    //CREATE RESERVATION BUTTON
+    // :(
 };
