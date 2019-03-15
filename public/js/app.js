@@ -8,8 +8,8 @@ $(document).ready(function () {
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
 
-//===================================================================
-//HEADER CLICKABLES
+    //===================================================================
+    //HEADER CLICKABLES
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -66,8 +66,8 @@ $(document).ready(function () {
         });
     });
 
-//===================================================================
-//SEARCHES
+    //===================================================================
+    //SEARCHES
 
     //GUEST SEARCH
     $(".guestsearch").on("click", function(event){
@@ -312,8 +312,8 @@ $(document).ready(function () {
         });
     });
 
-//===================================================================
-//UPDATE BUTTONS
+    //===================================================================
+    //UPDATE BUTTONS
 
     //CHECK IN
     $(document).on("click", ".check-in", function(event){
@@ -385,6 +385,27 @@ $(document).ready(function () {
         });
     });
 
-});
+    //CREATE NEW GUEST
+    $(".create-new-guest").on("submit", function(event){
+        event.preventDefault();
+        var condition = {
+            first_name: $("#first-name").val().trim(),
+            last_name: $("#last-name").val().trim(),
+            guest_phone: $("#guest-phone").val().trim(),
+            guest_email: $("#guest-email").val().trim(),
+            guest_notes: $("#guest-notes").val().trim(),
+            credit_card_number: $("#credit-card-number").val().trim(),
+            credit_card_type: $("#credit-card-type").val().trim(),
+            credit_card_expiration: $("#credit-card-expiration").val().trim()
+            }
+        $.ajax({
+            type: "POST",
+            data: condition
+        }).then(function(data){
+            console.log("NEW GUEST CREATED", data);
+            // prevguestcontainer.html(data);
+            // location.reload();
+        });
+    });
 
-//END DOC.READY
+}); //END DOC.READY
