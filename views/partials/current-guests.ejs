@@ -1,19 +1,22 @@
 
-                <table class="table is-fullwidth">
+                <div class = "constrainer2">
+                <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
-                    <th>NAME</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
                     <th>PHONE #</th>
                     <th>EMAIL</th>
 
                    <!--<th>Last Stay</th>-->
                   </tr>
                 </thead>
-                <tbody>
+                <tbody >
                 <%for (var i = 0; i < Reservation_Room.length; i++){%>
                 
                 <tr>
-                <td><%=Reservation_Room[i].Reservation.Guest.first_name%> <%=Reservation_Room[i].Reservation.Guest.last_name%></td>
+                <td><%=Reservation_Room[i].Reservation.Guest.first_name%></td>
+                <td><%=Reservation_Room[i].Reservation.Guest.last_name%></td>
                 <td><%=Reservation_Room[i].Reservation.Guest.guest_phone%></td>
                 <td><%=Reservation_Room[i].Reservation.Guest.guest_email%></td>
                 <!--<td><%="NA"%></td>-->
@@ -22,4 +25,5 @@
                 <%}%>
                 </tbody>
                 </table>
+                </div>
                 

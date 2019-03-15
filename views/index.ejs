@@ -1,27 +1,30 @@
 <% include partials/header %>
 
 <section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <img src="/img/TFHotels_Logo.png" alt = "T | F HOTELS" width = "350px" >
-            <span class="is-pulled-right title">CURRENT MOMENTJS TIME GOES HERE</span>
-        </div>
+
+    <div class="hero-body ">
+        
+        <img src="/img/TFHotels_Logo.png" alt = "T | F HOTELS" width = "450px" >
+            <span class="is-pulled-right title dateandtime"><span id = "date"></span><span id = "time"></span></span>
+       
+
     </div>
 </section>
 
-<div class="columns has-text-centered ">
+<div class="columns has-text-centered">
     <div class="column">
-        <section class="section">
-            <h1 class="title">GUESTS</h1>
+        <section class="section header">
+            <h1 class="title is-1 headertitle is-size-3-mobile">GUESTS</h1>
             <br>
-            <h1 class="title is-inline ">
-                <strong id="currentGuests" class = "hoverit" data-target ="current-guests">CURRENT</strong>
+            <h1 class="subtitle is-3 is-inline headersubtitle">
+                <span id="currentGuests" class = "hoverit " data-target ="current-guests">CURRENT</span>
                 |
-                <strong id="searchAllGuests" class = "hoverit" data-target ="all-guests">SEARCH ALL</strong>
+                <span id="searchAllGuests" class = "hoverit " data-target ="all-guests">SEARCH ALL</span>
             </h1>
         </section>
 
-        <section class="section">
+        
+
             <h1 class="title">SEARCH BY:</h1>
             <!--GUEST FORM-->
             <form>
@@ -59,19 +62,32 @@
                     </div>
                 </div>
             </form>
+           
+            <section class = "section">
+
+         
+
             
                 <div class = "guestContent">
                     <!--GUEST TABLE GOES HERE-->
                     <% include partials/current-guests %>
                 </div>
+
+                
+             
         </section>
-        <a href = "/reservation/new"class="button is-large is-fullwidth">NEW RESERVATION</a>
+
+        <a href = "/reservation/new"class="button is-large is-fullwidth newreservation">CREATE NEW RESERVATION</a>
+        
     </div>
 
-    <div class="column">
-        <section class="section ">
-            <h1 class="title">RESERVATIONS</h1>
+        <div class="column">
+        <section class="section header">
+            <h1 class="title headertitle is-1 is-size-4-mobile">RESERVATIONS</h1>
         </section>
+
+        
+
 
         <section>
             <h1 class="title">SEARCH BY:</h1>
@@ -143,7 +159,67 @@
     <!--END-->
     <hr>
     <!--START-->
-            <form>
+
+    <form>
+    <div class="field is-horizontal">
+    <div class="field-body">   
+
+    <div class="field">
+    <p class="control is-expanded">
+        <input id = "cancelreservnumber" class="input" type="text" name="id" placeholder="Reservation #">
+    </p>
+    </div>
+
+    <div class = "field">
+        <div class="select">
+            <select id = "reservationiscanceled" name = "canceled">
+                    <option>Canceled</option>
+                    <option value = "1" >Yes</option>
+                    <option value = "0">No</option>
+            </select>
+        </div>
+        </div>
+
+        <div class="field ">
+            <div class = "control">
+                 <input class = "button cancelreserv" type = "submit" value = "SEARCH" >
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </form>
+    
+    <section class = "section">
+
+        <!--RESERVATION's TABLE GOES HERE-->
+        
+        <div id = "reservationtable" >
+
+        <table class="table is-fullwidth is-striped is-narrow is-hoverable">
+        <thead>
+          <tr>
+            <th>RES #</th>
+            <th>NAME</th>
+            <th>DATE IN</th>
+            <th>DATE OUT</th>
+            <th>ROOM #</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class = "reservtablebody">
+
+
+        <!--<tr>
+        <td>8575</td>
+        <td>Camille Highes</td>
+        <td>01/01/2019</td>
+        <td>01/08/2019</td>
+        <td>101</td>
+        <td>
+            <form action = "/api/updateRes" method = "POST">
+
                 <div class="field is-horizontal">
                     <div class="field-body">   
                         <div class="field">
@@ -169,6 +245,19 @@
                  </div>
             </form>
 
+        </td>
+        </tr>-->
+
+
+
+        </tbody>
+        </table>
+        </div>
+        
+        </section>
+
+
+
             <!--RESERVATION's TABLE GOES HERE-->
             <div id = "reservationtable">
                 <table class="table is-fullwidth">
@@ -188,33 +277,41 @@
                 </table>
             </div>
 
-            <section class="section">
-                <h1 class="title is-inline">
-                    <strong class = "hoverit" id="reservationArrivals">ARRIVALS</strong> 
-                    | 
-                    <strong id="reservationDepartures" class = "hoverit">DEPARTURES</strong>
-                </h1>
-                <!--TABLE FOR ARRIVALS AND DEPARTURES -->
-                <div class = "reservationContent">
-                    <% include partials/arrivals %>
-                </div>
-            </section>
+
+        <section class="section header">
+            <h1 class="subtitle is-3 is-inline headersubtitle"><span class = "hoverit" id="reservationArrivals">ARRIVALS</span> | <span
+                    id="reservationDepartures" class = "hoverit">DEPARTURES</span></h1>
 
         </section>
+      
+
+                    <!--TABLE FOR ARRIVALS AND DEPARTURES -->
+                    <div class = "reservationContent">
+
+                    <% include partials/arrivals %>
+                    
+                   </div>
+        
+
+
+        
     </div>
 
 <!--SEARCH ROOMS-->
 
     <div class="column ">
-        <section class="section ">
-            <h1 class="title">ROOMS</h1>
+        <section class="section header">
+            <h1 class="title is-1 is-size-3-mobile headertitle">ROOMS</h1>
             <br>
-            <h1 class="title is-inline ">
-                <strong id="roomsOcupied" class = "hoverit">OCCUPIED</strong> 
-                | 
-                <strong id="roomsAvailable" class = "hoverit">AVAILABLE</strong>
-            </h1>
+
+            <h1 class="subtitle is-3 is-inline headersubtitle "><span id="roomsOcupied" class = "hoverit">OCCUPIED</span> | <span
+                    id="roomsAvailable" class = "hoverit">AVAILABLE</span></h1>
         </section>
+
+        
+
+        <h1 class="title">SEARCH BY:</h1>
+
 
         <h1 class="title">SEARCH BY:</h1>
         <form>
@@ -321,13 +418,24 @@
                 </div>
             </div>
         </form>
+       
+        <section class = "section">
 
         <div class = "roomscontainer">
-            <!--ROOMS TABLE GOES HERE-->
-            <% include partials/available %>
-        </div>
+
         
+
+        <!--ROOMS TABLE GOES HERE-->
+        
+
+        <% include partials/available %>
+
+                
+                </div>
+                </section>
+
     </div>
 </div>
+
 
 <% include partials/footer %>

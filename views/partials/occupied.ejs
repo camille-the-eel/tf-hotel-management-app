@@ -1,5 +1,6 @@
 
-                <table class="table is-fullwidth">
+             <div class = "constrainer2">
+               <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
                     <th>ROOM #</th>
@@ -13,14 +14,16 @@
                 <%for (var i = 0; i < Room.length; i++){%>
                 
                 <tr>
-                <td><%=Room[i].id%></td>
-                <td><%=Room[i].price_per_night%></td>
-                <td><%=Room[i].number_of_beds%></td>
-                <td><%=Room[i].bed_type%></td>
+                <td width = "88px"><%=Room[i].id%></td>
+                <td width = "128px"><%=Room[i].price_per_night%></td>
+                <td width = "105px"><%=Room[i].number_of_beds%></td>
+                <td width = "101px"><%=Room[i].bed_type%></td>
                 <!--<td><%="NA"%></td>-->
                 </tr>
 
                 <%}%>
                 </tbody>
                 </table>
+                </div>
+           
                 

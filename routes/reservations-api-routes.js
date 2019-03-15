@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var moment = require("moment");
 module.exports = function(app){
 
     app.get("/api/reservations/reservation/search", function(req, res){
@@ -118,7 +118,7 @@ module.exports = function(app){
         });
     });
     app.put("/api/reservations/checkout/:id", function(req, res){
-        db.Reservation_Room.update({in_house : 0},{
+        db.Reservation_Room.update([{in_house : 0},{check_out: [moment(new Date).format('YYYY-MM-DD HH:mm:ss')] }],{
             where: {ReservationId :req.params.id}
         }).then(function(dbReservations){
             res.json(dbReservations);

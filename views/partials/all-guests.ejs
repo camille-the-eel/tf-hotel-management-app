@@ -1,8 +1,9 @@
-
-                <table class="table is-fullwidth ">
+            <div class = "constrainer2">
+                <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
-                  <th>NAME</th>
+                  <th>FIRST NAME</th>
+                  <th>LAST NAME</th>
                   <th>PHONE #</th>
                   <th>EMAIL</th>
                   <!--<th>Last Stay</th>-->
@@ -12,10 +13,14 @@
                 <%for (var i = 0; i < Guest.length; i++){%>
                 
                 <tr>
-                <td><%=Guest[i].first_name%> <%=Guest[i].last_name%></td>
+                <td><%=Guest[i].first_name%></td>
+                <td><%=Guest[i].last_name%></td>
                 <td><%=Guest[i].guest_phone%></td>
                 <td><%=Guest[i].guest_email%></td>
                 <!--<td><%="NA"%></td>-->
                 </tr>
 
                 <%}%>
+                </tbody>
+                </table>
+                </div>

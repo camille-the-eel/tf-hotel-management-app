@@ -100,7 +100,7 @@ $(document).ready(function () {
             var td2 = $("<td>");
             var td3 = $("<td>");
             var td4 = $("<td>");
-            table.attr("class", "table is-fullwidth");
+            table.addClass("table is-fullwidth is-striped is-narrow is-hoverable");
             table.append(thead);
             thead.append(trh);
             th1.text("FIRST NAME");
@@ -312,13 +312,41 @@ $(document).ready(function () {
         });
     });
 
+
+//===================================================================
+//NEW-RESERVATION EJS PAGE 
+
+    //CONTAINERS
+    var resroomscontainer = $(".room-search");
+    var prevguestcontainer = $(".previous-guest-search");
+
+    //CREATE NEW RESERVATION SEARCH PARAMETERS
+    $("#newreservationsearch").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            startDate: $("#start-date").val().trim(),
+            endDate: $("#end-date").val().trim(),
+            }
+        $.ajax({
+            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
+        }).then(function(data){
+            resroomscontainer.html(data);
+        });
+    });
+
+
+    // CHECK INS AND CHECK OUTS FROM INDEX PAGE
+
     //===================================================================
     //UPDATE BUTTONS
 
     //CHECK IN
+
     $(document).on("click", ".check-in", function(event){
-        alert("click");
+
+        
         var id = $(this).attr("data");
+        $(this).addClass("clicked");
 
         $.ajax({
             url : "/api/reservations/checkin/" + id,
@@ -332,7 +360,7 @@ $(document).ready(function () {
 
     //CHECK OUT
     $(document).on("click", ".check-out", function(event){
-        alert("click");
+      
         var id = $(this).attr("data");
 
         console.log(id);
@@ -342,7 +370,6 @@ $(document).ready(function () {
             method: "PUT",
             data: {in_house: 0}
         }).then(function(data){
-
 
         });
     });
@@ -385,6 +412,27 @@ $(document).ready(function () {
         });
     });
 
+
+    // CURRENT TIME IN INDEX
+    function currentTime (){
+    var sec = 1;
+    var date = moment().format("MMM Do YY");  
+    var time = moment().format('LT'); 
+
+    $("#date").text(date);
+    $("#time").text(time);
+
+    t = setTimeout(function() {
+        currentTime();
+    }, sec * 1000);	
+
+    };
+    currentTime ();
+   
+
+
+});
+
     //CREATE NEW GUEST
     $(".create-new-guest").on("submit", function(event){
         event.preventDefault();
@@ -407,5 +455,6 @@ $(document).ready(function () {
             // location.reload();
         });
     });
+
 
 }); //END DOC.READY
