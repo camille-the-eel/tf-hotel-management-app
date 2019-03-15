@@ -12,7 +12,7 @@ $(document).ready(function () {
     var roomscontainer = $(".roomscontainer");
 
 //===================================================================
-//CLICKABLES
+//HEADER CLICKABLES
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -319,12 +319,36 @@ $(document).ready(function () {
 //UPDATE BUTTONS
 
     //CHECK IN
-    $("#check-in").on("click", function(event){
+    $(document).on("click", ".check-in", function(event){
+        alert("click");
+        var id = $(this).attr("data");
 
         $.ajax({
-            
-        }).then(function(){});
-    })
+            url : "/api/reservations/checkin/" + id,
+            method: "PUT",
+            data: {in_house: 0}
+        }).then(function(data){
+
+
+        });
+    });
+
+    //CHECK OUT
+    $(document).on("click", ".check-out", function(event){
+        alert("click");
+        var id = $(this).attr("data");
+
+        console.log(id);
+
+        $.ajax({
+            url : "/api/reservations/checkout/" + id,
+            method: "PUT",
+            data: {in_house: 0}
+        }).then(function(data){
+
+
+        });
+    });
 
 //===================================================================
 //NEW-RESERVATION HTML PAGE 
