@@ -372,10 +372,10 @@ $(document).ready(function () {
     $(".previous-guest-search").on("click", function(event){
         event.preventDefault();
         var condition = {
-            first_name: $("#first-name").val().trim(),
-            last_name: $("#last-name").val().trim(),
-            guest_phone: $("#guest-phone").val().trim(),
-            guest_email: $("#guest-email").val().trim()
+            first_name: $("#first_name").val().trim(),
+            last_name: $("#last_name").val().trim(),
+            guest_phone: $("#guest_phone").val().trim(),
+            guest_email: $("#guest_email").val().trim()
             }
         $.ajax({
             url: "/reservation/new/previousguestsearch?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
@@ -386,23 +386,25 @@ $(document).ready(function () {
     });
 
     //CREATE NEW GUEST
-    $(".create-new-guest").on("submit", function(event){
+    $(".create_new_guest").on("submit", function(event){
         event.preventDefault();
-        var condition = {
-            first_name: $("#first-name").val().trim(),
-            last_name: $("#last-name").val().trim(),
-            guest_phone: $("#guest-phone").val().trim(),
-            guest_email: $("#guest-email").val().trim(),
-            guest_notes: $("#guest-notes").val().trim(),
-            credit_card_number: $("#credit-card-number").val().trim(),
-            credit_card_type: $("#credit-card-type").val().trim(),
-            credit_card_expiration: $("#credit-card-expiration").val().trim()
-            }
+
+        var newGuest = {
+            last_name: $("#last_name").val().trim(),
+            first_name: $("#first_name").val().trim(),
+            guest_phone: $("#guest_phone").val().trim(),
+            guest_email: $("#guest_email").val().trim(),
+            guest_notes: $("#guest_notes").val().trim(),
+            credit_card_number: $("#credit_card_number").val().trim(),
+            credit_card_type: $("#credit_card_type").val().trim(),
+            credit_card_expiration: $("#credit_card_expiration").val().trim()
+        };
+
         $.ajax({
             type: "POST",
-            data: condition
+            data: newGuest
         }).then(function(data){
-            console.log("NEW GUEST CREATED", data);
+            console.log("NEW GUEST CREATED", newGuest);
             // prevguestcontainer.html(data);
             // location.reload();
         });
