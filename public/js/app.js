@@ -1,9 +1,5 @@
-//routing in static app.use in server.js
-//this is where we do our jquery onclicks and also the ajax put/post to push the info into our api arrays
-
 $(document).ready(function () {
 
-    
 //===================================================================
 //INDEX HTML PAGE 
 
@@ -11,6 +7,9 @@ $(document).ready(function () {
     var guestcontainer = $(".guestContent");
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
+
+    //===================================================================
+    //HEADER CLICKABLES
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -21,6 +20,7 @@ $(document).ready(function () {
         })
     });
 
+    //CURRENT GUESTS
     $("#currentGuests").on("click", function (event) {
         $.ajax({
             url: "/partial/inHouse"
@@ -29,6 +29,7 @@ $(document).ready(function () {
         })
     });
 
+    //TODAY'S ARRIVALS
     $("#reservationArrivals").on("click", function(event){
         $.ajax({
             url: "/arrivals"
@@ -36,6 +37,8 @@ $(document).ready(function () {
             reservationcontainer.html(data);
         })
     });
+
+    //TODAY'S DEPARTURES
     $("#reservationDepartures").on("click", function(event){
         $.ajax({
             url: "/departures"
@@ -44,6 +47,8 @@ $(document).ready(function () {
 
         });
     });
+
+    //OCCUPIED ROOMS
     $("#roomsOcupied").on("click", function(event){
         $.ajax({
             url : "/occupied"
@@ -52,6 +57,7 @@ $(document).ready(function () {
         });
     });
 
+    //AVAILABLE ROOMS
     $("#roomsAvailable").on("click", function(event){
         $.ajax({
             url : "/available"
@@ -60,20 +66,19 @@ $(document).ready(function () {
         });
     });
 
+    //===================================================================
+    //SEARCHES
 
-    
+    //GUEST SEARCH
     $(".guestsearch").on("click", function(event){
         event.preventDefault();
       
-
         var condition = {
             first_name: $("#guestfirstname").val().trim(),
             last_name: $("#guestlastname").val().trim(),
             guest_phone: $("#guestphone").val().trim(),
             guest_email: $("#guestemail").val().trim(),
-
         }    
-        
         $.ajax({
             url : "/api/guests/search?first_name=" + condition.first_name + "&last_name=" + condition.last_name + "&guest_phone=" + condition.guest_phone + "&guest_email" + condition.guest_email
         }).then(function(data){
@@ -117,13 +122,11 @@ $(document).ready(function () {
             trb.append(td2);
             trb.append(td3);
             trb.append(td4);
-            guestcontainer.html(table);
-            
+            guestcontainer.html(table); 
         });
-
     });
 
-
+    //RESERVATION SEARCH BY ID AND DATES
     $(".reservbyreserv").on("click", function(event){
         event.preventDefault();
         $(".reservtablebody").empty();
@@ -179,26 +182,20 @@ $(document).ready(function () {
                 $(".reservtablebody").append("</form>");
                 $(".reservtablebody").append("</td>");
                 $(".reservtablebody").append("</tr>");
-
-                
-
-
-
             }
-            
-
         });
     });
 
+    //RESERVATION SEARCH BY NAME/NUMBER/EMAIL
     $(".reservbyguest").on("click", function(event){
         event.preventDefault();
+
         var condition = {
             first_name: $("#reservfirstname").val().trim(),
             last_name: $("#reservlastname").val().trim(),
             guest_phone: $("#reservationphone").val().trim(),
             guest_email: $("#reservationemail").val().trim(),
             }
-
             $.ajax({
                 url: "/api/reservations/guests/search?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
             }).then(function(data){
@@ -210,7 +207,6 @@ $(document).ready(function () {
                         
                         console.log(data[i].Reservations[j].id);
                        
-
                         $(".reservtablebody").append("<tr>");
                         $(".reservtablebody").append("<td>" + data[i].Reservations[j].id + "</td>" );
                         $(".reservtablebody").append("<td>" + data[i].first_name + " " + data[i].last_name+"</td>" );
@@ -248,25 +244,19 @@ $(document).ready(function () {
                         $(".reservtablebody").append("</form>");
                         $(".reservtablebody").append("</td>");
                         $(".reservtablebody").append("</tr>");
-
-
-            
-                    }
-                  
-                    
+                    }    
                 }
-
             });
     });
+
+    //RESERVATION SEARCH BY CANCELED/ID
     $(".cancelreserv").on("click", function(event){
         event.preventDefault();
         $(".reservtablebody").empty();
 
         var condition = {
-
             id : $("#cancelreservnumber").val().trim(),
             canceled: $("#reservationiscanceled").val()
-
         }
         // console.log(condition.canceled);
         $.ajax({
@@ -276,11 +266,7 @@ $(document).ready(function () {
             
             for (var i = 0; i < data.length; i ++){
                 console.log(data[i].Reservation);
-                
-                    
-                    
-                   
-
+ 
                     $(".reservtablebody").append("<tr>");
                     $(".reservtablebody").append("<td>" + data[i].Reservation.id + "</td>" );
                     $(".reservtablebody").append("<td>" + data[i].Reservation.Guest.first_name + " " + data[i].Reservation.Guest.last_name+"</td>" );
@@ -288,7 +274,6 @@ $(document).ready(function () {
                     $(".reservtablebody").append("<td>" + data[i].Reservation.date_out + "</td>" );
                     $(".reservtablebody").append("<td>" + data[i].Reservation.RoomId + "</td>" );
                     $(".reservtablebody").append("</tr>");
-
             }
         });
     });
@@ -310,11 +295,8 @@ $(document).ready(function () {
             balcony: $("#balcony").val(),
             smoke: $("#smoke").val()
         }
-
-
         $.ajax({
             url: "/api/room/search?id="+condition.id+"&max_price="+condition.max_price+"&min_price="+condition.min_price+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
-            
         }).then(function(data){
 
             roomscontainer.append("<table class='table is-fullwidth'> <thead> <tr><th>ROOM #</th><th>PRICE/NIGHT</th><th># OF BEDS</th> <th>BED TYPE</th> </tr></thead><tbody class = 'roomsbodycontainer'></tbody> </table>");
@@ -327,12 +309,9 @@ $(document).ready(function () {
                 $(".roomsbodycontainer").append("<td>" + data[i].number_of_beds+"</td>");
                 $(".roomsbodycontainer").append("<td>" + data[i].bed_type+"</td>");
             }   
-
-
-
-            
         });
     });
+
 
 //===================================================================
 //NEW-RESERVATION EJS PAGE 
@@ -357,6 +336,12 @@ $(document).ready(function () {
 
 
     // CHECK INS AND CHECK OUTS FROM INDEX PAGE
+
+    //===================================================================
+    //UPDATE BUTTONS
+
+    //CHECK IN
+
     $(document).on("click", ".check-in", function(event){
 
         
@@ -368,30 +353,47 @@ $(document).ready(function () {
             method: "PUT",
             data: {in_house: 0}
         }).then(function(data){
-            
-           
-        });
-    })
 
+
+        });
+    });
+
+    //CHECK OUT
     $(document).on("click", ".check-out", function(event){
       
         var id = $(this).attr("data");
 
         console.log(id);
-        
 
         $.ajax({
             url : "/api/reservations/checkout/" + id,
             method: "PUT",
             data: {in_house: 0}
         }).then(function(data){
-            
-          
-        });
-    })
- 
-    
 
+        });
+    });
+
+//===================================================================
+//NEW-RESERVATION HTML PAGE 
+
+    //CONTAINERS
+    var resroomscontainer = $(".room-search");
+    var prevguestcontainer = $(".previous-guest-search");
+
+    //CREATE NEW RESERVATION SEARCH PARAMETERS
+    $("#newreservationsearch").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            startDate: $("#start-date").val().trim(),
+            endDate: $("#end-date").val().trim(),
+            }
+        $.ajax({
+            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
+        }).then(function(data){
+            resroomscontainer.html(data);
+        });
+    });
 
     //PREVIOUS GUEST SEARCH FOR CREATE NEW RESERVATION
     $(".previous-guest-search").on("click", function(event){
@@ -409,6 +411,7 @@ $(document).ready(function () {
             prevguestcontainer.html(data);
         });
     });
+
 
     // CURRENT TIME IN INDEX
     function currentTime (){
@@ -430,4 +433,28 @@ $(document).ready(function () {
 
 });
 
-//END DOC.READY
+    //CREATE NEW GUEST
+    $(".create-new-guest").on("submit", function(event){
+        event.preventDefault();
+        var condition = {
+            first_name: $("#first-name").val().trim(),
+            last_name: $("#last-name").val().trim(),
+            guest_phone: $("#guest-phone").val().trim(),
+            guest_email: $("#guest-email").val().trim(),
+            guest_notes: $("#guest-notes").val().trim(),
+            credit_card_number: $("#credit-card-number").val().trim(),
+            credit_card_type: $("#credit-card-type").val().trim(),
+            credit_card_expiration: $("#credit-card-expiration").val().trim()
+            }
+        $.ajax({
+            type: "POST",
+            data: condition
+        }).then(function(data){
+            console.log("NEW GUEST CREATED", data);
+            // prevguestcontainer.html(data);
+            // location.reload();
+        });
+    });
+
+
+}); //END DOC.READY
