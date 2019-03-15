@@ -404,6 +404,7 @@ $(document).ready(function () {
         }).then(function(data){
             console.log(data);
             // prevguestcontainer.html(data);
+            location.reload();
         });
     });
 
