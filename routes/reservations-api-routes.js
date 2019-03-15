@@ -90,5 +90,42 @@ module.exports = function(app){
             res.json(dbCanceled);
         });
     });
+    app.get("/api/reservations/checkin", function(req, res){
+        db.Reservation_Room.findAll({
+            where : {
+                in_house :0
+            }
+        }).then(function(dbReservations){
+            res.json(dbReservations);
+        });
+    });
+    app.put("/api/reservations/checkin/:id", function(req, res){
+        db.Reservation_Room.update([{in_house : 1}, {check_in: [moment(new Date).format('YYYY-MM-DD HH:mm:ss')] }],{ 
+            where: {ReservationId: req.params.id}
+        }).then(function(dbReservations){
+            res.json(dbReservations);
+        });
+    });
+
+    app.get("/api/reservations/checkout", function(req, res){
+        console.log(req.body);
+        db.Reservation_Room.findAll({
+            where : {
+                in_house :1
+            }
+        }).then(function(dbReservations){
+            res.json(dbReservations);
+        });
+    });
+    app.put("/api/reservations/checkout/:id", function(req, res){
+        db.Reservation_Room.update({in_house : 0},{
+            where: {ReservationId :req.params.id}
+        }).then(function(dbReservations){
+            res.json(dbReservations);
+        });
+    });
+
+
+    
         
 };
