@@ -3,6 +3,7 @@
 
 $(document).ready(function () {
 
+    
 //===================================================================
 //INDEX HTML PAGE 
 
@@ -354,13 +355,37 @@ $(document).ready(function () {
         });
     });
 
-    $("#check-in").on("click", function(event){
+    $(document).on("click", ".check-in", function(event){
+        alert("click");
+        var id = $(this).attr("data");
 
         $.ajax({
+            url : "/api/reservations/checkin/" + id,
+            method: "PUT",
+            data: {in_house: 0}
+        }).then(function(data){
             
-        }).then(function(){});
+           
+        });
     })
 
+    $(document).on("click", ".check-out", function(event){
+        alert("click");
+        var id = $(this).attr("data");
+
+        console.log(id);
+        
+
+        $.ajax({
+            url : "/api/reservations/checkout/" + id,
+            method: "PUT",
+            data: {in_house: 0}
+        }).then(function(data){
+            
+           
+        });
+    })
+ 
     
 
 
