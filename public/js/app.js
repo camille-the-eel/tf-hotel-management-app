@@ -431,7 +431,7 @@ $(document).ready(function () {
    
 
 
-});
+
 
     //CREATE NEW GUEST
     $(".create_new_guest").on("submit", function(event){
