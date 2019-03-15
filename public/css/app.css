@@ -5,7 +5,9 @@
     box-shadow: none !important;
 } */
 
-
+* {
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
 body {
     padding: 40px;
 }
@@ -32,8 +34,9 @@ body {
 
 .header {
     background-color: #6FB6BC;
-    margin-bottom: 10px;
+   
 }
+
 
 .headertitle {
     color: white;
@@ -41,6 +44,10 @@ body {
 
 .headersubtitle {
     color: #0A4242;
+}
+
+.searchby {
+    margin-top: 10px;
 }
 
 
