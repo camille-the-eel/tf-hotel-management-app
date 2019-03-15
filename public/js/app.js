@@ -8,8 +8,8 @@ $(document).ready(function () {
     var reservationcontainer = $(".reservationContent");
     var roomscontainer = $(".roomscontainer");
 
-//===================================================================
-//HEADER CLICKABLES
+    //===================================================================
+    //HEADER CLICKABLES
 
     //SEARCH ALL
     $("#searchAllGuests").on("click", function (event) {
@@ -66,8 +66,8 @@ $(document).ready(function () {
         });
     });
 
-//===================================================================
-//SEARCHES
+    //===================================================================
+    //SEARCHES
 
     //GUEST SEARCH
     $(".guestsearch").on("click", function(event){
@@ -312,8 +312,8 @@ $(document).ready(function () {
         });
     });
 
-//===================================================================
-//UPDATE BUTTONS
+    //===================================================================
+    //UPDATE BUTTONS
 
     //CHECK IN
     $(document).on("click", ".check-in", function(event){
