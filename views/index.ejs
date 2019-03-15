@@ -3,11 +3,7 @@
 <section class="hero">
     <div class="hero-body">
         <div class="container">
-
-        
-        <img src="/img/TFHotels_Logo.png" alt = "T | F HOTELS" width = "350px" >
-        
-        
+            <img src="/img/TFHotels_Logo.png" alt = "T | F HOTELS" width = "350px" >
             <span class="is-pulled-right title">CURRENT MOMENTJS TIME GOES HERE</span>
         </div>
     </div>
@@ -24,278 +20,188 @@
                 <strong id="searchAllGuests" class = "hoverit" data-target ="all-guests">SEARCH ALL</strong>
             </h1>
         </section>
+
         <section class="section">
             <h1 class="title">SEARCH BY:</h1>
-
             <!--GUEST FORM-->
-
             <form>
-
-            <div class="field is-horizontal">
-                <div class="field-body">
-
-                 
-
-                <div class="field">
-                        <div class="control is-expanded">
-                            <input id="guestfirstname" class="input" type="text" name="first_name" placeholder="First Name">
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control is-expanded">
+                                <input id="guestfirstname" class="input" type="text" name="first_name" placeholder="First Name">
                             </div>
                         </div>
-
-
                         <div class="field">
-                        <div class="control is-expanded">
-                            <input id="guestlastname" class="input" type="text" name="last_name" placeholder="Last Name">
+                            <div class="control is-expanded">
+                                <input id="guestlastname" class="input" type="text" name="last_name" placeholder="Last Name">
                             </div>
                         </div>
-
-
+                    </div>
                 </div>
-            </div>
-
-          
-            <div class="field is-horizontal">
-                <div class="field-body">
-
+                <div class="field is-horizontal">
+                    <div class="field-body">
                         <div class="field">
-                        <div class="control is-expanded">
-                            <input id="guestphone" class="input" type="text" name="guest_phone" placeholder="Phone #">
+                            <div class="control is-expanded">
+                                <input id="guestphone" class="input" type="text" name="guest_phone" placeholder="Phone #">
+                            </div>
                         </div>
-                        </div>
-
                         <div class="field">
-                        <div class="control is-expanded">
-                            <input id="guestemail" class="input" type="text" name="guest_email" placeholder="Email">
+                            <div class="control is-expanded">
+                                <input id="guestemail" class="input" type="text" name="guest_email" placeholder="Email">
+                            </div>
                         </div>
-                        </div>
-
-                        
-                </div>
+                    </div>
                 </div>
                 <div class="field ">
                     <div class = "control">
                         <input class = "button guestsearch is-fullwidth" type = "submit" value = "SEARCH" >
                     </div>
                 </div>
-
-
             </form>
             
-            
-            
                 <div class = "guestContent">
-                <!--GUEST TABLE GOES HERE-->
-                
-                <% include partials/current-guests %>
-
-
+                    <!--GUEST TABLE GOES HERE-->
+                    <% include partials/current-guests %>
                 </div>
-                
-              
         </section>
         <a href = "/reservation/new"class="button is-large is-fullwidth">NEW RESERVATION</a>
-        
     </div>
 
-        <div class="column">
+    <div class="column">
         <section class="section ">
             <h1 class="title">RESERVATIONS</h1>
         </section>
+
         <section>
-
-        <h1 class="title">SEARCH BY:</h1>
-
-
-        <!--START-->
-        <form>
-        <div class="field is-horizontal">
-            <div class="field-body">
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input id = "reservnumber" class="input" type="text" name="id" placeholder="Reservation #">
-                    </p>
+            <h1 class="title">SEARCH BY:</h1>
+    <!--START-->
+            <form>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "reservnumber" class="input" type="text" name="id" placeholder="Reservation #">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "reservdatein" class="input" type="text" name="date_in" placeholder="Date In (YYYY-MM-DD)">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "reservdateout" class="input" type="text" name="date_out" placeholder="Date Out (YYYY-MM-DD)">
+                            </p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input id = "reservdatein" class="input" type="text" name="date_in" placeholder="Date In (YYYY-MM-DD)">
-                    </p>
-                </div>
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input id = "reservdateout" class="input" type="text" name="date_out" placeholder="Date Out (YYYY-MM-DD)">
-                    </p>
-                </div>
-
-                
-
-            </div>
-        </div>
-        <div class="field ">
+                <div class="field ">
                     <div class = "control">
                         <input class = "button reservbyreserv is-fullwidth" type = "submit" value = "SEARCH" >
                     </div>
                 </div>
-        </form>
-<!--END-->
-<hr>
-<!--START-->
-        <form>
-        <div class="field is-horizontal">
-            <div class="field-body">
-
-                <div class="field">
-                    <div class="control is-expanded">
-                        <input id = "reservfirstname" class="input" type="text" name="first_name" placeholder="First Name">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="control is-expanded">
-                        <input id= "reservlastname" class="input" type="text" name="last_name" placeholder="Last Name">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-body">
-
-            <div class="field">
-                <p class="control is-expanded">
-                    <input id = "reservationphone" class="input" type="text" name="guest_phone" placeholder="Phone Number">
-                </p>
-            </div>
-
-            <div class="field">
-                <p class="control is-expanded">
-                    <input id = "reservationemail" class="input" type="text" name="guest_email" placeholder="Email">
-                </p>
-            </div>
-
-            
-
-        </div>
-    </div>
-    <div class="field ">
-                    <div class = "control ">
-                        <input class = "button reservbyguest is-fullwidth" type = "submit" value = "SEARCH" >
-                    </div>
-            </div>
-    </form>
+            </form>
     <!--END-->
     <hr>
     <!--START-->
-    <form>
-    <div class="field is-horizontal">
-    <div class="field-body">   
+            <form>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control is-expanded">
+                                <input id = "reservfirstname" class="input" type="text" name="first_name" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control is-expanded">
+                                <input id= "reservlastname" class="input" type="text" name="last_name" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "reservationphone" class="input" type="text" name="guest_phone" placeholder="Phone Number">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "reservationemail" class="input" type="text" name="guest_email" placeholder="Email">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field ">
+                    <div class = "control ">
+                        <input class = "button reservbyguest is-fullwidth" type = "submit" value = "SEARCH" >
+                    </div>
+                </div>
+            </form>
+    <!--END-->
+    <hr>
+    <!--START-->
+            <form>
+                <div class="field is-horizontal">
+                    <div class="field-body">   
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input id = "cancelreservnumber" class="input" type="text" name="id" placeholder="Reservation #">
+                            </p>
+                        </div>
+                        <div class = "field">
+                            <div class="select">
+                                <select id = "reservationiscanceled" name = "canceled">
+                                        <option>Canceled</option>
+                                        <option value = "1" >Yes</option>
+                                        <option value = "0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field ">
+                            <div class = "control">
+                                <input class = "button cancelreserv" type = "submit" value = "SEARCH" >
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </form>
 
-    <div class="field">
-    <p class="control is-expanded">
-        <input id = "cancelreservnumber" class="input" type="text" name="id" placeholder="Reservation #">
-    </p>
-    </div>
-
-    <div class = "field">
-        <div class="select">
-            <select id = "reservationiscanceled" name = "canceled">
-                    <option>Canceled</option>
-                    <option value = "1" >Yes</option>
-                    <option value = "0">No</option>
-            </select>
-        </div>
-        </div>
-
-        <div class="field ">
-            <div class = "control">
-                 <input class = "button cancelreserv" type = "submit" value = "SEARCH" >
+            <!--RESERVATION's TABLE GOES HERE-->
+            <div id = "reservationtable">
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>RES #</th>
+                            <th>NAME</th>
+                            <th>DATE IN</th>
+                            <th>DATE OUT</th>
+                            <th>ROOM #</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class = "reservtablebody">
+                    </tbody>
+                </table>
             </div>
-        </div>
 
-        </div>
-        </div>
-    </form>
-
-        <!--RESERVATION's TABLE GOES HERE-->
-        <div id = "reservationtable">
-
-        <table class="table is-fullwidth">
-        <thead>
-          <tr>
-            <th>RES #</th>
-            <th>NAME</th>
-            <th>DATE IN</th>
-            <th>DATE OUT</th>
-            <th>ROOM #</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody class = "reservtablebody">
-
-
-        <!--<tr>
-        <td>8575</td>
-        <td>Camille Highes</td>
-        <td>01/01/2019</td>
-        <td>01/08/2019</td>
-        <td>101</td>
-        <td>
-            <form action = "/api/updateRes" method = "POST">
-                <div class="field is-horizontal">
-                    <div class="field-body">
-                        <div class="field has-addons">
-                            <div class = "control">
-                                <input  class = "button update-res" type = "submit" value = "UPDATE">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </td>
-        <td>
-            <form action = "/api/cancelRes" method = "POST">
-                <div class="field is-horizontal">
-                    <div class="field-body">
-                        <div class="field has-addons">
-                            <div class = "control">
-                                <input  class = "button cancel-res" type = "submit" value = "X">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </td>
-        </tr>-->
-
-
-
-        </tbody>
-        </table>
-        </div>
-
-
-
-
-        <section class="section">
-            <h1 class="title is-inline"><strong class = "hoverit" id="reservationArrivals">ARRIVALS</strong> | <strong
-                    id="reservationDepartures" class = "hoverit">DEPARTURES</strong></h1>
-
-
-                    <!--TABLE FOR ARRIVALS AND DEPARTURES -->
-                    <div class = "reservationContent">
-
+            <section class="section">
+                <h1 class="title is-inline">
+                    <strong class = "hoverit" id="reservationArrivals">ARRIVALS</strong> 
+                    | 
+                    <strong id="reservationDepartures" class = "hoverit">DEPARTURES</strong>
+                </h1>
+                <!--TABLE FOR ARRIVALS AND DEPARTURES -->
+                <div class = "reservationContent">
                     <% include partials/arrivals %>
-                    
-                   </div>
-        </section>
+                </div>
+            </section>
 
         </section>
     </div>
-
 
 <!--SEARCH ROOMS-->
 
@@ -303,141 +209,125 @@
         <section class="section ">
             <h1 class="title">ROOMS</h1>
             <br>
-            <h1 class="title is-inline "><strong id="roomsOcupied" class = "hoverit">OCCUPIED</strong> | <strong
-                    id="roomsAvailable" class = "hoverit">AVAILABLE</strong></h1>
+            <h1 class="title is-inline ">
+                <strong id="roomsOcupied" class = "hoverit">OCCUPIED</strong> 
+                | 
+                <strong id="roomsAvailable" class = "hoverit">AVAILABLE</strong>
+            </h1>
         </section>
+
         <h1 class="title">SEARCH BY:</h1>
-
         <form>
-        <div class="field is-horizontal">
-        
-            <div class="field-body">
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input class="input" type="text" id = "roomID" name="id" placeholder="Room #">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" id = "roomID" name="id" placeholder="Room #">
+                        </p>
+                    </div>
+                    <div class="field-label is-normal">
+                        <label class="label">Price</label>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <div class="select">
+                                <select id = "minprice" name = "min_price">
+                                    <option value = "">Min-price</option>
+                                    <option value = "99">99</option>
+                                    <option value = "199">199</option>
+                                    <option value = "299">299</option>
+                                    <option value = "399">399</option>
+                                    <option value = "499">499</option>
+                                </select>
+                            </div>
+                            <div class="select">
+                                <select id = "maxprice" name = "max_price">
+                                    <option value = "">Max-price</option>
+                                    <option value = "99">99</option>
+                                    <option value = "199">199</option>
+                                    <option value = "299">299</option>
+                                    <option value = "399">399</option>
+                                    <option value = "499">499</option>
+                                </select>
+                            </div>
+                        </p>
+                    </div>
                 </div>
-
-                <div class="field-label is-normal">
-                    <label class="label">Price</label>
-                </div>
-                <div class="field">
-                    <p class="control is-expanded">
-                    <div class="select">
-                    <select id = "minprice" name = "min_price">
-                    <option value = "">Min-price</option>
-                    <option value = "99">99</option>
-                    <option value = "199">199</option>
-                    <option value = "299">299</option>
-                    <option value = "399">399</option>
-                    <option value = "499">499</option>
-                    </select>
-                  </div>
-                  <div class="select">
-                  <select id = "maxprice" name = "max_price">
-                    <option value = "">Max-price</option>
-                    <option value = "99">99</option>
-                    <option value = "199">199</option>
-                    <option value = "299">299</option>
-                    <option value = "399">399</option>
-                    <option value = "499">499</option>
-                  </select>
-                </div>
-                    </p>
-                </div>
-                
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-body">
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input class="input" type="text" id = "bedtype" name="bed_type" placeholder="BED TYPE">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" id = "bedtype" name="bed_type" placeholder="BED TYPE">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" id = "numberofbeds" name="number_of_beds" placeholder="# OF BEDS">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" id = "maxoccupancy" name="max_occupancy" placeholder="MAX OCCUPANCY">
+                        </p>
+                    </div>
                 </div>
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input class="input" type="text" id = "numberofbeds" name="number_of_beds" placeholder="# OF BEDS">
-                    </p>
-                </div>
-
-                <div class="field">
-                    <p class="control is-expanded">
-                        <input class="input" type="text" id = "maxoccupancy" name="max_occupancy" placeholder="MAX OCCUPANCY">
-                    </p>
-                </div>
-
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-body">
-
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field ">
+                        <div class="select" >
+                            <select id = "adjoining" name = "adjoining">
+                                <option value = "">ADJOINING</option>
+                                <option value = "1">Yes</option>
+                                <option value = "0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field ">
+                        <div class="select">
+                            <select id = "jacuzzi" name = "jacuzzi">
+                                <option value = "">JACUZZI</option>
+                                <option value = "1">Yes</option>
+                                <option value = "0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field ">
+                        <div class="select">
+                            <select id = "balcony" name = "balcony">
+                                <option value = "">BALCONY</option>
+                                <option value = "1">Yes</option>
+                                <option value = "0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field ">
+                        <div class="select">
+                            <select id = "smoke" name = "smoke">
+                                <option value = "">SMOKE</option>
+                                <option value = "1">Yes</option>
+                                <option value = "0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="field ">
-                <div class="select" >
-                  <select id = "adjoining" name = "adjoining">
-                    <option value = "">ADJOINING</option>
-                    <option value = "1">Yes</option>
-                    <option value = "0">No</option>
-                  </select>
+                <div class = "control">
+                    <input class = "button roomsearch is-fullwidth" type = "submit" value = "SEARCH" >
                 </div>
-                </div>
-
-                <div class="field ">
-                <div class="select">
-                  <select id = "jacuzzi" name = "jacuzzi">
-                    <option value = "">JACUZZI</option>
-                    <option value = "1">Yes</option>
-                    <option value = "0">No</option>
-                  </select>
-                </div>
-                </div>
-
-                <div class="field ">
-                <div class="select">
-                  <select id = "balcony" name = "balcony">
-                    <option value = "">BALCONY</option>
-                    <option value = "1">Yes</option>
-                    <option value = "0">No</option>
-                  </select>
-                </div>
-                </div>
-
-                <div class="field ">
-                <div class="select">
-                  <select id = "smoke" name = "smoke">
-                    <option value = "">SMOKE</option>
-                    <option value = "1">Yes</option>
-                    <option value = "0">No</option>
-                  </select>
-                </div>
-                </div>
-
-        </div>
-        </div>
-
-        <div class="field ">
-            <div class = "control">
-                <input class = "button roomsearch is-fullwidth" type = "submit" value = "SEARCH" >
             </div>
-        </div>
-
         </form>
 
         <div class = "roomscontainer">
-
-        <!--ROOMS TABLE GOES HERE-->
+            <!--ROOMS TABLE GOES HERE-->
+            <% include partials/available %>
+        </div>
         
-
-        <% include partials/available %>
-
-                </div>
     </div>
-    
 </div>
 
 <% include partials/footer %>
