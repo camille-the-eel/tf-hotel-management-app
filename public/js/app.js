@@ -385,4 +385,26 @@ $(document).ready(function () {
         });
     });
 
+    //CREATE NEW GUEST
+    $(".create-new-guest").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            first_name: $("#first-name").val().trim(),
+            last_name: $("#last-name").val().trim(),
+            guest_phone: $("#guest-phone").val().trim(),
+            guest_email: $("#guest-email").val().trim(),
+            guest_notes: $("#guest-notes").val().trim(),
+            credit_card_number: $("#credit-card-number").val().trim(),
+            credit_card_type: $("#credit-card-type").val().trim(),
+            credit_card_expiration: $("#credit-card-expiration").val().trim()
+            }
+        $.ajax({
+            type: "POST",
+            data: condition
+        }).then(function(data){
+            console.log(data);
+            // prevguestcontainer.html(data);
+        });
+    });
+
 }); //END DOC.READY

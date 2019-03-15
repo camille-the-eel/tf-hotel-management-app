@@ -12,242 +12,264 @@
 
 <div class="columns has-text-centered ">
     <div class="column is-one-third">
-
         <h1 class="title is-1">RESERVATION DETAILS</h1>
         
         <form action = "/roomsearch" method = "POST">
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">START DATE</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                         <input id="start-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "start-date">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">START DATE</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input id="start-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "start-date">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">END DATE</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">END DATE</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
                             <input id= "end-date" class="input" type="text" placeholder="YYYY-MM-DD" name = "end-date">
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">TOTAL NIGHTS</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="TOTAL NIGHTS" name = "total_nights">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">TOTAL NIGHTS</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="TOTAL NIGHTS" name = "total_nights">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">PRICE/NIGHT</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <!--A dropdown box with prices selection goes here-->
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">PRICE/NIGHT</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <!--A dropdown box with prices selection goes here-->
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">TOTAL GUESTS</label>
-            </div>
-            <div class="field-body">
-            <div class="select">
-            <select name = "total_nights">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-              
-            </select>
-        </div>
-            </div>
-        </div>  
-
-
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label"># OF BEDS</label>
-            </div>
-            <div class="field-body">
-            <div class="select">
-            <select name = "number_of_beds">
-                <option>1</option>
-                <option>2</option>
-              
-            </select>
-        </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">BED TYPE</label>
-            </div>
-            <div class="field-body">
-            <div class="select">
-            <select name = "bed_type">
-                <option>KING</option>
-                <option>QUEEN</option>
-                <option>FULL</option>
-            </select>
-        </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal ">
-            <div class="field-body">
-                <div class="select">
-                    <select name = "adjoining">
-                        <option>ADJOINING</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">TOTAL GUESTS</label>
                 </div>
-                <div class="select">
-                    <select name = "jacuzzi">
-                        <option>JACUZZI</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
+                <div class="field-body">
+                    <div class="select">
+                        <select name = "total_nights">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="select">
-                    <select name = "balcony">
-                        <option>BALCONY</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
-                </div>
-                <div class="select">
-                    <select name = "smoke">
-                        <option>SMOKE</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
+            </div>  
 
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label"># OF BEDS</label>
+                </div>
+                <div class="field-body">
+                    <div class="select">
+                        <select name = "number_of_beds">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-        <input id = "newreservationsearch" class="button" type="submit" value="Search Room">
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">BED TYPE</label>
+                </div>
+                <div class="field-body">
+                    <div class="select">
+                        <select name = "bed_type">
+                            <option>KING</option>
+                            <option>QUEEN</option>
+                            <option>FULL</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal ">
+                <div class="field-body">
+                    <div class="select">
+                        <select name = "adjoining">
+                            <option>ADJOINING</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <select name = "jacuzzi">
+                            <option>JACUZZI</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <select name = "balcony">
+                            <option>BALCONY</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <select name = "smoke">
+                            <option>SMOKE</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <input id = "newreservationsearch" class="button" type="submit" value="Search Room">
         </form>
 
         <h1 class="title is-1">CUSTOMER DETAILS</h1>
-    <form>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">FIRST NAME</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="FIRST NAME" name= "first-name" id="first-name">
-                    </p>
+        <form>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">FIRST NAME</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="FIRST NAME" name= "first-name" id="first-name">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">LAST NAME</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="LAST NAME" name= "last-name" id="last-name">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">LAST NAME</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="LAST NAME" name= "last-name" id="last-name">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">EMAIL</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="EMAIL" name= "guest-email" id="guest-email">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">EMAIL</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="EMAIL" name= "guest-email" id="guest-email">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">PHONE #</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="PHONE #" name= "guest-phone" id="guest-phone">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">PHONE #</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="PHONE #" name= "guest-phone" id="guest-phone">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">GUEST NOTES</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control ">
+                                <input class="input" type="text" placeholder="NOTES" name= "guest-notes" id="guest-notes">
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">CREDIT CARD NUMBER</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="####-####-####-####" name= "credit_card_number">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">CREDIT CARD NUMBER</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="####-####-####-####" name= "credit-card-number" id="credit-card-number">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">EXPIRATION DATE</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <input class="input" type="text" placeholder="MM/YYYY" name= "credit_card_expiration">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">CREDIT CARD TYPE</label>
+                </div>
+                <div class="field-body">
+                    <div class="select">
+                        <select name="credit-card-type" id="credit-card-type">
+                            <option>AMEX</option>
+                            <option>VISA</option>
+                            <option>MASTERCARD</option>
+                            <option>DISCOVER</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">EXPIRATION DATE</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control ">
+                            <input class="input" type="text" placeholder="MM/YYYY" name= "credit-card-expiration" id= "credit-card-expiration">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field ">
-            <div class = "control">
+            <div class="field ">
+                <div class = "control">
                     <input class="button previous-guest-search" type="submit" value="SEARCH PREVIOUS GUESTS" >
+                </div>
             </div>
-        </div>
 
-        <div class="field ">
-            <div class = "control">
+            <div class="field ">
+                <div class = "control">
                     <input class="button create-new-guest" type="submit" value="CREATE NEW GUEST" >
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -265,7 +287,6 @@
     </div>
 
     <div class="room-search-table">
-
         <h1 class="title is-1 is-pulled-left">ROOMS AVAILABLE</h1>
         <div class="room-search">
              <!--ROOMS TABLE GOES HERE-->
@@ -274,9 +295,7 @@
             <%} else if (validRoom) {%>
                 <% include partials/new-reservation-search %>
             <%}%>
-
         </div>
-
     </div>
 
     <div class="guest-search-table">

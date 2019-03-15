@@ -60,7 +60,7 @@ module.exports = function (app) {
 
     //CREATE NEW GUEST | POST
     app.post("/reservation/new/createguest", checkSchema ({
-
+       
     }), function (req, res) {
         db.Guest.create({
             last_name: req.body.last_name,
