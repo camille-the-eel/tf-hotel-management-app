@@ -386,7 +386,7 @@ $(document).ready(function () {
     });
 
     //CREATE NEW GUEST
-    $(".create-new-guest").on("click", function(event){
+    $(".create-new-guest").on("submit", function(event){
         event.preventDefault();
         var condition = {
             first_name: $("#first-name").val().trim(),
@@ -402,9 +402,9 @@ $(document).ready(function () {
             type: "POST",
             data: condition
         }).then(function(data){
-            console.log(data);
+            console.log("NEW GUEST CREATED", data);
             // prevguestcontainer.html(data);
-            location.reload();
+            // location.reload();
         });
     });
 

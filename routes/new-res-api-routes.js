@@ -59,9 +59,11 @@ module.exports = function (app) {
     //CREATE RESERVATION BUTTON
 
     //CREATE NEW GUEST | POST
-    app.post("/reservation/new/createguest", checkSchema ({
+    app.post("/reservation/new/createguest", 
+    // checkSchema ({
        
-    }), function (req, res) {
+    // }), 
+    function (req, res) {
         db.Guest.create({
             last_name: req.body.last_name,
             first_name: req.body.first_name,

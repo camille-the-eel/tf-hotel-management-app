@@ -150,7 +150,7 @@
         </form>
 
         <h1 class="title is-1">CUSTOMER DETAILS</h1>
-        <form>
+        <form action = "/reservation/new/createguest" method = "POST">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label">FIRST NAME</label>
@@ -260,13 +260,13 @@
 
             <div class="field ">
                 <div class = "control">
-                    <input class="button previous-guest-search" type="submit" value="SEARCH PREVIOUS GUESTS" >
+                    <input class="button previous-guest-search" type="submit" value="SEARCH PREVIOUS GUESTS" name="search-previous-guest">
                 </div>
             </div>
 
             <div class="field ">
                 <div class = "control">
-                    <input class="button create-new-guest" type="submit" value="CREATE NEW GUEST" >
+                    <input class="button create-new-guest" type="submit" value="CREATE NEW GUEST" name="create-new-guest">
                 </div>
             </div>
         </form>
