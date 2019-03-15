@@ -95,7 +95,7 @@ $(document).ready(function () {
             var td2 = $("<td>");
             var td3 = $("<td>");
             var td4 = $("<td>");
-            table.attr("class", "table is-fullwidth");
+            table.addClass("table is-fullwidth is-striped is-narrow is-hoverable");
             table.append(thead);
             thead.append(trh);
             th1.text("FIRST NAME");
@@ -335,7 +335,7 @@ $(document).ready(function () {
     });
 
 //===================================================================
-//NEW-RESERVATION HTML PAGE 
+//NEW-RESERVATION EJS PAGE 
 
     //CONTAINERS
     var resroomscontainer = $(".room-search");
@@ -355,9 +355,13 @@ $(document).ready(function () {
         });
     });
 
+
+    // CHECK INS AND CHECK OUTS FROM INDEX PAGE
     $(document).on("click", ".check-in", function(event){
-        alert("click");
+
+        
         var id = $(this).attr("data");
+        $(this).addClass("clicked");
 
         $.ajax({
             url : "/api/reservations/checkin/" + id,
@@ -370,7 +374,7 @@ $(document).ready(function () {
     })
 
     $(document).on("click", ".check-out", function(event){
-        alert("click");
+      
         var id = $(this).attr("data");
 
         console.log(id);
@@ -382,7 +386,7 @@ $(document).ready(function () {
             data: {in_house: 0}
         }).then(function(data){
             
-           
+          
         });
     })
  
@@ -405,6 +409,24 @@ $(document).ready(function () {
             prevguestcontainer.html(data);
         });
     });
+
+    // CURRENT TIME IN INDEX
+    function currentTime (){
+    var sec = 1;
+    var date = moment().format("MMM Do YY");  
+    var time = moment().format('LT'); 
+
+    $("#date").text(date);
+    $("#time").text(time);
+
+    t = setTimeout(function() {
+        currentTime();
+    }, sec * 1000);	
+
+    };
+    currentTime ();
+   
+
 
 });
 
