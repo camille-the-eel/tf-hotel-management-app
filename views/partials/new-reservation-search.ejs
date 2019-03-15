@@ -15,18 +15,18 @@
             </thead>
             <tbody>
 
-            <%for (var i = 0; i < Rooms.length; i++){%>
+            <%for (var i = 0; i < validRoom.length; i++){%>
         
                 <tr>
-                <td><%=Rooms[i].id%></td>
-                <td><%=Rooms[i].price_per_night%></td>
-                <td><%=Rooms[i].max_occupancy%></td>
-                <td><%=Rooms[i].number_of_beds%></td>
-                <td><%=Rooms[i].bed_type%></td>
-                <td><%=Rooms[i].adjoining%></td>
-                <td><%=Rooms[i].jacuzzi%></td>
-                <td><%=Rooms[i].balcony%></td>
-                <td><%=Rooms[i].smoke%></td>
+                <td><%=validRoom[i].Room.id%></td>
+                <td><%=validRoom[i].Room.price_per_night%></td>
+                <td><%=validRoom[i].Room.max_occupancy%></td>
+                <td><%=validRoom[i].Room.number_of_beds%></td>
+                <td><%=validRoom[i].Room.bed_type%></td>
+                <td><%=validRoom[i].Room.adjoining%></td>
+                <td><%=validRoom[i].Room.jacuzzi%></td>
+                <td><%=validRoom[i].Room.balcony%></td>
+                <td><%=validRoom[i].Room.smoke%></td>
                 <td>
                     <form action ="/api/select-room" method ="POST">
                     <div class="field is-horizontal">
@@ -41,19 +41,8 @@
                     </form>
                 </td>
                 </tr>
-
             <%}%>
-                <!-- <tr>
-                    <td>107</td>
-                    <td>150.00</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>QUEEN</td>
-                    <td>NO</td>
-                    <td>NO</td>
-                    <td>NO</td>
-                    <td>NO</td>
-                </tr> -->
+            
             </tbody>
         </table>
     </div>

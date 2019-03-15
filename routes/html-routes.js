@@ -100,7 +100,7 @@ module.exports = function (app) {
                         res.render("new-reservation", {
                             Guest: dbGuest,
                             Reservation: dbReservation,
-                            Rooms: dbRooms,
+                            Room: dbRooms,
                             Reservation_Room: dbReservationRoom
                         });
                     });
