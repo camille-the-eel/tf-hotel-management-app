@@ -413,7 +413,7 @@ $(document).ready(function () {
     // CURRENT TIME IN INDEX
     function currentTime (){
         var sec = 1;
-        var date = moment().format("MMM Do YY");  
+        var date = moment().format("MMM Do YYYY");  
         var time = moment().format('LT'); 
 
         $("#date").text(date);

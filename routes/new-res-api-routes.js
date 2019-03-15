@@ -1,7 +1,7 @@
 var db = require("../models");
 var moment = require('moment');
-const { checkSchema } = require('express-validator/check');
-const { sanitizeBody } = require('express-validator/filter');
+const { check, validationResult } = require('express-validator/check');
+const { sanitize } = require('express-validator/filter');
 
 module.exports = function (app) {
 
@@ -59,7 +59,30 @@ module.exports = function (app) {
     //CREATE RESERVATION BUTTON
 
     //CREATE NEW GUEST | POST
-    app.post("/reservation/new/createguest", function (req, res) {
+    app.post("/reservation/new/createguest", [
+
+        check('first_name')
+            .isLength({ min: 3, max: 50 })
+            .trim(),
+        check('last_name')
+            .isLength({ min: 2, max: 50 })
+            .trim(),
+        check('guest_phone')
+            .isMobilePhone(),
+        check('guest_email')
+            .isEmail()
+            .normalizeEmail(),
+        check('credit_card_number')
+            .isCreditCard(),
+        sanitize('notifyOnReply').toBoolean()
+
+    ], function (req, res) {
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() });
+        }
+
         db.Guest.create({
             last_name: req.body.last_name,
             first_name: req.body.first_name,
@@ -76,3 +99,53 @@ module.exports = function (app) {
         })
     });
 };
+
+
+// first_name: {
+//     in: ['body'],
+//     errorMessage: "First Name should be between 3 and 50 characters.",
+//     isLength: {
+//         options: { min: 3, max : 50 }
+//     },
+//     trim: true
+// },
+// last_name: {
+//     in: ['body'],
+//     errorMessage: "Last Name should be between 3 and 50 characters.",
+//     isLength: {
+//         options: { min: 2, max : 50 }
+//     },
+//     trim: true
+// },
+// guest_phone: {
+//     in: ['body'],
+//     errorMessage: "Please enter Phone Number in 10 digits.",
+//     isLength: {
+//         options: { min: 10, max: 10 }
+//     },
+//     matches: {
+//         options: [/^\d{10}$/],
+//         errorMessage: "Please enter digits."
+//     },
+//     trim: true
+// },
+// guest_email: {
+//     in: ['body'],
+//     errorMessage: 'Please enter a valid email address',
+//     isEmail : true,
+//     trim: true
+// },
+// credit_card_number: {
+//     in: ['body'],
+//     errorMessage: "Please enter card number",
+//     custom: {
+//         options: (value, { req }) => {
+
+//             if(req.body.credit_card_number==="Credit Card"){
+//                 return /^[0-9]{12,19}$/.test(value);
+//             }else{
+//                 return true;
+//             }
+//         },
+//     }
+// }
