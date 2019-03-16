@@ -8,7 +8,7 @@ module.exports = function (app) {
 //===========================================================================
 //RENDERING IN EJS PARTIALS FOR NEW-RESERVATION HTML
 
-    // NEW RESERVATION SEARCH PARTIAL
+    //NEW RESERVATION SEARCH PARTIAL
     app.get("/reservation/new/roomsearch", function (req, res, next) {
 
         db.Reservation.findAll({
@@ -31,7 +31,7 @@ module.exports = function (app) {
         });
     });
 
-    //NEW RESERVATION PREVIOUS GUEST SEARCH PARTIAL
+    //PREVIOUS GUEST SEARCH PARTIAL
     app.get("/reservation/new/previousguestsearch", function(req, res){
 
         var validWhere = {};
@@ -93,7 +93,8 @@ module.exports = function (app) {
         }).then(function(data) {
             console.log(req.body);
             console.log(req.body.first_name);
-            res.json({ newGuest: data});
+            // res.json({ newGuest: data});
+            // res.render("partials/new-guest", {layout: false, newGuest : data});
         })
     });
 
