@@ -2,21 +2,21 @@
                 <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
-                  <th>FIRST NAME</th>
-                  <th>LAST NAME</th>
-                  <th>PHONE #</th>
-                  <th>EMAIL</th>
+                  <th width = "90px">FIRST NAME</th>
+                    <th width = "90px">LAST NAME</th>
+                    <th width = "95px">PHONE #</th>
+                    <th width = "155px">EMAIL</th>
                   <!--<th>Last Stay</th>-->
                   </tr>
                 </thead>
-                <tbody >
+                <tbody class = "gueststablebody">
                 <%for (var i = 0; i < Guest.length; i++){%>
                 
                 <tr>
-                <td><%=Guest[i].first_name%></td>
-                <td><%=Guest[i].last_name%></td>
-                <td><%=Guest[i].guest_phone%></td>
-                <td><%=Guest[i].guest_email%></td>
+                <td width = "90px"><%=Guest[i].first_name%></td>
+                <td width = "90px"><%=Guest[i].last_name%></td>
+                <td width = "95px"><%=Guest[i].guest_phone%></td>
+                <td width = "155px"><%=Guest[i].guest_email%></td>
                 <!--<td><%="NA"%></td>-->
                 </tr>
 

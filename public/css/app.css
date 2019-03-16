@@ -48,6 +48,7 @@ body {
 
 .searchby {
     margin-top: 10px;
+    color: #0A4242;
 }
 
 
@@ -69,7 +70,8 @@ body {
 }
 
 /* Table header styling */
-thead {
+thead,
+.thead {
     border-top: solid 20px #6FB6BC;
     background-color: #0A4242 !important;
     height: 50px;
