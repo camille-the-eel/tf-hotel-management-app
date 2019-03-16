@@ -308,7 +308,11 @@
         </section>
         <div class="previous-guest-search">
             <!--GUEST TABLE GOES HERE-->
-            <% include partials/previous-guests %>
+            <% if (Guest) {%>
+                <% include partials/previous-guests %>
+            <%} else if (newGuest) {%>
+                <% include partials/new-guest %>
+            <%}%>
         </div>
     </div>
     </section>
