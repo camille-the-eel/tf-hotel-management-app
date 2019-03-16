@@ -72,6 +72,7 @@
                 <div class = "guestContent">
                     <!--GUEST TABLE GOES HERE-->
                     <% include partials/current-guests %>
+                    
                 </div>
 
                 
@@ -190,74 +191,8 @@
         </div>
         </div>
     </form>
-    
-    <section class = "section">
 
-        <!--RESERVATION's TABLE GOES HERE-->
-        
-        <div id = "reservationtable" >
-
-        <table class="table is-fullwidth is-striped is-narrow is-hoverable">
-        <thead>
-          <tr>
-            <th>RES #</th>
-            <th>NAME</th>
-            <th>DATE IN</th>
-            <th>DATE OUT</th>
-            <th>ROOM #</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody class = "reservtablebody">
-
-
-        <!--<tr>
-        <td>8575</td>
-        <td>Camille Highes</td>
-        <td>01/01/2019</td>
-        <td>01/08/2019</td>
-        <td>101</td>
-        <td>
-            <form action = "/api/updateRes" method = "POST">
-
-                <div class="field is-horizontal">
-                    <div class="field-body">   
-                        <div class="field">
-                            <p class="control is-expanded">
-                                <input id = "cancelreservnumber" class="input" type="text" name="id" placeholder="Reservation #">
-                            </p>
-                        </div>
-                        <div class = "field">
-                            <div class="select">
-                                <select id = "reservationiscanceled" name = "canceled">
-                                        <option>Canceled</option>
-                                        <option value = "1" >Yes</option>
-                                        <option value = "0">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="field ">
-                            <div class = "control">
-                                <input class = "button cancelreserv" type = "submit" value = "SEARCH" >
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            </form>
-
-        </td>
-        </tr>-->
-
-
-
-        </tbody>
-        </table>
-        </div>
-        
-        </section>
-
-
+        <section class = "section">
 
             <!--RESERVATION's TABLE GOES HERE-->
             <div id = "reservationtable">
@@ -269,8 +204,7 @@
                             <th>DATE IN</th>
                             <th>DATE OUT</th>
                             <th>ROOM #</th>
-                            <th></th>
-                            <th></th>
+                            
                         </tr>
                     </thead>
                     <tbody class = "reservtablebody">
@@ -278,11 +212,12 @@
                 </table>
             </div>
 
+            </section>   
 
-        <section class="section header nomargin">
+
+        <section class="section header">
             <h1 class="subtitle is-3 is-inline headersubtitle"><span class = "hoverit" id="reservationArrivals">ARRIVALS</span> | <span
                     id="reservationDepartures" class = "hoverit">DEPARTURES</span></h1>
-
         </section>
       
 
@@ -418,7 +353,9 @@
        
         <section class = "section">
 
+        
         <div class = "roomscontainer">
+
 
         
 
@@ -427,7 +364,7 @@
 
         <% include partials/available %>
 
-                
+                  
                 </div>
                 </section>
 

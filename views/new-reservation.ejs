@@ -14,8 +14,9 @@
 
 
     <div class="column is-two-fifths">
-        <h1 class="title is-1">RESERVATION DETAILS</h1>
-        
+    <section class = "section">
+        <h1 class="title is-1 searchby">RESERVATION DETAILS</h1>
+        <hr>
         <form action = "/roomsearch" method = "POST">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -62,6 +63,7 @@
                     <label class="label">TOTAL GUESTS</label>
                 </div>
                 <div class="field-body">
+                
                     <div class="select">
                         <select name = "total_nights">
                             <option>1</option>
@@ -71,6 +73,7 @@
                             <option>5</option>
                             <option>6</option>
                         </select>
+                        
                     </div>
                 </div>
             </div>  
@@ -80,11 +83,13 @@
                     <label class="label"># OF BEDS</label>
                 </div>
                 <div class="field-body">
+               
                     <div class="select">
                         <select name = "number_of_beds">
                             <option>1</option>
                             <option>2</option>
                         </select>
+                       
                     </div>
                 </div>
             </div>
@@ -94,25 +99,30 @@
                     <label class="label">BED TYPE</label>
                 </div>
                 <div class="field-body">
+               
                     <div class="select">
                         <select name = "bed_type">
                             <option>KING</option>
                             <option>QUEEN</option>
                             <option>FULL</option>
                         </select>
+                       
                     </div>
                 </div>
             </div>
 
             <div class="field is-horizontal ">
                 <div class="field-body">
+                <div class="field ">
                     <div class="select">
                         <select name = "adjoining">
                             <option>ADJOINING</option>
                             <option>Yes</option>
                             <option>No</option>
                         </select>
+                        </div>
                     </div>
+                    <div class="field ">
                     <div class="select">
                         <select name = "jacuzzi">
                             <option>JACUZZI</option>
@@ -120,6 +130,8 @@
                             <option>No</option>
                         </select>
                     </div>
+                    </div>
+                    <div class="field ">
                     <div class="select">
                         <select name = "balcony">
                             <option>BALCONY</option>
@@ -127,6 +139,8 @@
                             <option>No</option>
                         </select>
                     </div>
+                    </div>
+                    <div class="field ">
                     <div class="select">
                         <select name = "smoke">
                             <option>SMOKE</option>
@@ -134,12 +148,16 @@
                             <option>No</option>
                         </select>
                     </div>
+                    </div>
                 </div>
             </div>
-            <input id = "newreservationsearch" class="button" type="submit" value="Search Room">
+            <input id = "newreservationsearch" class="button is-fullwidth" type="submit" value="Search Room">
         </form>
+        </section>
 
-        <h1 class="title is-1">CUSTOMER DETAILS</h1>
+        <section class = "section">
+        <h1 class="title is-1 searchby">CUSTOMER DETAILS</h1>
+        <hr>
         <form action = "/reservation/new/createguest" method = "POST">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -250,36 +268,24 @@
 
             <div class="field ">
                 <div class = "control">
-                    <input class="button previous_guest_search" type="submit" value="SEARCH PREVIOUS GUESTS" name="search_previous_guest">
+                    <input class="button previous_guest_search is-fullwidth" type="submit" value="SEARCH PREVIOUS GUESTS" name="search_previous_guest">
                 </div>
             </div>
 
             <div class="field ">
                 <div class = "control">
-                    <input class="button create_new_guest" type="submit" value="CREATE NEW GUEST" name="create_new_guest">
+                    <input class="button create_new_guest is-fullwidth" type="submit" value="CREATE NEW GUEST" name="create_new_guest">
                 </div>
             </div>
         </form>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">TOTAL PRICE</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control ">
-                        <!--This is Price/Night * total/Nights-->
-                    </p>
-                </div>
-            </div>
-        </div>
-        
+        </section>
     </div>
 
 
     <div class = "column relative">
     <div class="room-search-table">
 
+    <section class = "section">
     <section class = "section header">
         <h1 class="title is-1 ">ROOMS AVAILABLE</h1>
     </section>
@@ -293,7 +299,9 @@
             <%}%>
         </div>
     </div>
+    </section>
     
+    <section class = "section">
     <div class="guest-search-table">
         <section class = "section header">
         <h1 class="title is-1 ">PREVIOUS GUESTS</h1>
@@ -303,15 +311,12 @@
             <% include partials/previous-guests %>
         </div>
     </div>
-    <div class = "columns absolute">
+    </section>
+    <div class = " absolute">
     <div class="res-info" >
-            <div class = "column">
-                <h1 class = "title is-3">ROOM #100</h1>
-                <h1 class = "title is-3"> PRICE $200 </h1> 
-            </div>
-            <div class = "column">
-                <input class="button is-large" type="submit" value="CREATE RESERVATION">
-            </div>
+           
+                <input class="button is-large newreservation" type="submit" value="CREATE RESERVATION">
+            
         </div>
     </div>
 

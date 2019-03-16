@@ -3,22 +3,22 @@
                 <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
-                  <th>RES #</th>
-                  <th>NAME</th>
-                  <th>DATE IN</th>
-                  <th>DATE OUT</th>
-                  <th>ROOM #</th>
+                  <th width = "53px">RES #</th>
+                  <th width = "142px">NAME</th>
+                  <th width = "76px">DATE IN</th>
+                  <th width = "76px">DATE OUT</th>
+                  <th width = "73px">ROOM #</th>
                   </tr>
                 </thead>
                 <tbody>
                 <%for (var i = 0; i < Reservation.length; i++){%>
                 
                 <tr>
-                <td><%=Reservation[i].id%></td>
-                <td><%=Reservation[i].Guest.first_name%> <%=Reservation[i].Guest.last_name%></td>
-                <td><%=Reservation[i].date_in%></td>
-                <td><%=Reservation[i].date_out%></td>
-                <td><%=Reservation[i].RoomId%></td>
+                <td width = "53px"><%=Reservation[i].id%></td>
+                <td width = "142px"><%=Reservation[i].Guest.first_name%> <%=Reservation[i].Guest.last_name%></td>
+                <td width = "76px"><%=Reservation[i].date_in%></td>
+                <td width = "76px"><%=Reservation[i].date_out%></td>
+                <td width = "73px"><%=Reservation[i].RoomId%></td>
                 <td>
                   
                     <div class="field is-horizontal">

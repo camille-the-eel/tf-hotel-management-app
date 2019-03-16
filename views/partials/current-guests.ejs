@@ -3,22 +3,22 @@
                 <table class="table is-fullwidth is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
-                    <th>FIRST NAME</th>
-                    <th>LAST NAME</th>
-                    <th>PHONE #</th>
-                    <th>EMAIL</th>
+                    <th width = "90px">FIRST NAME</th>
+                    <th width = "90px">LAST NAME</th>
+                    <th width = "95px">PHONE #</th>
+                    <th width = "155px">EMAIL</th>
 
                    <!--<th>Last Stay</th>-->
                   </tr>
                 </thead>
-                <tbody >
+                <tbody class = "gueststablebody">
                 <%for (var i = 0; i < Reservation_Room.length; i++){%>
                 
                 <tr>
-                <td><%=Reservation_Room[i].Reservation.Guest.first_name%></td>
-                <td><%=Reservation_Room[i].Reservation.Guest.last_name%></td>
-                <td><%=Reservation_Room[i].Reservation.Guest.guest_phone%></td>
-                <td><%=Reservation_Room[i].Reservation.Guest.guest_email%></td>
+                <td width = "90px"><%=Reservation_Room[i].Reservation.Guest.first_name%></td>
+                <td width = "90px"><%=Reservation_Room[i].Reservation.Guest.last_name%></td>
+                <td width = "95px"><%=Reservation_Room[i].Reservation.Guest.guest_phone%></td>
+                <td width = "155px"><%=Reservation_Room[i].Reservation.Guest.guest_email%></td>
                 <!--<td><%="NA"%></td>-->
                 </tr>
 
