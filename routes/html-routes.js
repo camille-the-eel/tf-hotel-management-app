@@ -133,7 +133,6 @@ module.exports = function (app) {
             res.render("partials/all-guests", { layout: false, Guest: dbGuest });
         })
     });
-
   
     //ARRIVALS FOR TODAY LIST | GET
     app.get("/arrivals", function (req, res) {

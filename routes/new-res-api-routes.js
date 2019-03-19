@@ -91,11 +91,23 @@ module.exports = function (app) {
             credit_card_type: req.body.credit_card_type,
             credit_card_expiration: req.body.credit_card_expiration
         }).then(function(data) {
-            console.log(req.body);
-            console.log(req.body.first_name);
+            console.log("BODY", req.body);
+            console.log("DATA", data.id);
+            
+            db.Guest.findAll({
+                where: {
+                    id: data.id
+                }
+            }).then(function(dbGuest){
+                console.log("dbGuest", dbGuest);
+                // res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
+            });
+
             // res.json({ newGuest: data});
-            // res.render("partials/new-guest", {layout: false, newGuest : data});
-        })
+            // res.render("partials/new-guest", {layout: false, newGuest : req.body});
+            // res.send(200);
+        });
+
     });
 
 

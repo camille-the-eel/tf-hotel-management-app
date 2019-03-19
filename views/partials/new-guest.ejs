@@ -9,20 +9,20 @@
                     </tr>
                 </thead>
                 <tbody>
-    
+        
                 <%for (var i = 0; i < newGuest.length; i++){%>
-            
+
                     <tr>
-                    <td width = "189px"><%=newGuest[i].first_namee%> <%=Guest[i].last_name%></td>
-                    <td width = "123px"><%=newGuest[i].guest_phone%></td>
-                    <td width = "326px"><%=newGuest[i].guest_email%></td>
+                    <td width = "189px"><%=newGuest[0].first_name%> <%=newGuest[0].last_name%></td>
+                    <td width = "123px"><%=newGuest[0].guest_phone%></td>
+                    <td width = "326px"><%=newGuest[0].guest_email%></td>
                     <td>
-                        <form action="/api/select-guest" method ="POST">
+                        <form action="/reservation/new/createguest" method ="POST">
                         <div class="field is-horizontal">
                             <div class="field-body">
                             <div class="field has-addons">
                                 <div class="control">
-                                    <input id="select-guest" class="button" type ="submit" value ="SELECT GUEST">
+                                    <input id="create_new_guest" class="button" type ="submit" value ="CREATE NEW GUEST">
                                 </div>
                             </div>
                             </div>
@@ -30,7 +30,6 @@
                         </form>
                     </td>
                     </tr>
-    
                 <%}%>
                 </tbody>
             </table>

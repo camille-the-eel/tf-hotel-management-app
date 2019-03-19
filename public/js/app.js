@@ -325,35 +325,27 @@ $(document).ready(function () {
     });
 
 
+    // CURRENT TIME IN INDEX
+    function currentTime (){
+
+        var sec = 1;
+        var date = moment().format("MMM Do YYYY");  
+        var time = moment().format('LT'); 
+
+        $("#date").text(date);
+        $("#time").text(time);
+
+        t = setTimeout(function() {
+            currentTime();
+        }, sec * 1000);	
+
+    };
+    currentTime ();
+   
 //===================================================================
-//NEW-RESERVATION EJS PAGE 
-
-    //CONTAINERS
-    var resroomscontainer = $(".room-search");
-    var prevguestcontainer = $(".previous-guest-search");
-
-    //CREATE NEW RESERVATION SEARCH PARAMETERS
-    $("#newreservationsearch").on("click", function(event){
-        event.preventDefault();
-        var condition = {
-            startDate: $("#start-date").val().trim(),
-            endDate: $("#end-date").val().trim(),
-            }
-        $.ajax({
-            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
-        }).then(function(data){
-            resroomscontainer.html(data);
-        });
-    });
-
-
-    // CHECK INS AND CHECK OUTS FROM INDEX PAGE
-
-    //===================================================================
-    //UPDATE BUTTONS
+//UPDATE BUTTONS
 
     //CHECK IN
-
     $(document).on("click", ".check-in", function(event){
 
         var id = $(this).attr("data");
@@ -380,6 +372,27 @@ $(document).ready(function () {
             data: {in_house: 0}
         }).then(function(data){
 
+        });
+    });
+
+//===================================================================
+//NEW-RESERVATION EJS PAGE 
+
+    //CONTAINERS
+    var resroomscontainer = $(".room-search");
+    var prevguestcontainer = $(".previous-guest-search");
+
+    //CREATE NEW RESERVATION SEARCH PARAMETERS
+    $("#newreservationsearch").on("click", function(event){
+        event.preventDefault();
+        var condition = {
+            startDate: $("#start-date").val().trim(),
+            endDate: $("#end-date").val().trim(),
+            }
+        $.ajax({
+            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
+        }).then(function(data){
+            resroomscontainer.html(data);
         });
     });
 
@@ -421,27 +434,6 @@ $(document).ready(function () {
         });
     });
 
-
-    // CURRENT TIME IN INDEX
-    function currentTime (){
-
-        var sec = 1;
-        var date = moment().format("MMM Do YYYY");  
-        var time = moment().format('LT'); 
-
-
-        $("#date").text(date);
-        $("#time").text(time);
-
-        t = setTimeout(function() {
-            currentTime();
-        }, sec * 1000);	
-
-    };
-    currentTime ();
-   
-
-
     //CREATE NEW GUEST
     $(".create_new_guest").on("submit", function(event){
         event.preventDefault();
@@ -458,14 +450,12 @@ $(document).ready(function () {
         };
 
         $.ajax({
+            url : "/reservation/new/createguest",
             type: "POST",
             data: newGuest
         }).then(function(data){
-            console.log("NEW GUEST CREATED", newGuest);
-            // prevguestcontainer.html(data);
-            // location.reload();
+            prevguestcontainer.html(data);
         });
     });
-
 
 }); //END DOC.READY
