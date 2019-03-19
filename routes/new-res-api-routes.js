@@ -100,7 +100,7 @@ module.exports = function (app) {
                 }
             }).then(function(dbGuest){
                 console.log("dbGuest", dbGuest);
-                res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
+                // res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
             });
 
             // res.json({ newGuest: data});
