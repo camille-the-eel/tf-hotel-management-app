@@ -95,8 +95,6 @@ $(document).ready(function () {
                 $(".gueststablebody").append("</tr>");
             }
                
-            
-
             // var table = $("<table>");
             // var thead = $("<thead>");
             // var trh = $("<tr>");
@@ -310,7 +308,6 @@ $(document).ready(function () {
             url: "/api/room/search?id="+condition.id+"&max_price="+condition.max_price+"&min_price="+condition.min_price+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
         }).then(function(data){
                 //  roomscontainer.append("<div class = 'constrainer2'>");
-
                 // $(".constrainer2").append("<table class='is-fullwidth is-striped is-hoverable'> <thead width = '100%'> <tr><th>ROOM #</th><th>PRICE/NIGHT</th><th># OF BEDS</th> <th>BED TYPE</th> </tr></thead><tbody class = 'roomsbodycontainer'></tbody> </table></div>");
             
             for (var i = 0; i < data.length; i++){
@@ -323,7 +320,6 @@ $(document).ready(function () {
             }   
         });
     });
-
 
     // CURRENT TIME IN INDEX
     function currentTime (){
@@ -377,27 +373,6 @@ $(document).ready(function () {
 
 //===================================================================
 //NEW-RESERVATION EJS PAGE 
-
-    //CONTAINERS
-    var resroomscontainer = $(".room-search");
-    var prevguestcontainer = $(".previous-guest-search");
-
-    //CREATE NEW RESERVATION SEARCH PARAMETERS
-    $("#newreservationsearch").on("click", function(event){
-        event.preventDefault();
-        var condition = {
-            startDate: $("#start-date").val().trim(),
-            endDate: $("#end-date").val().trim(),
-            }
-        $.ajax({
-            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
-        }).then(function(data){
-            resroomscontainer.html(data);
-        });
-    });
-
-//===================================================================
-//NEW-RESERVATION HTML PAGE 
 
     //CONTAINERS
     var resroomscontainer = $(".room-search");
