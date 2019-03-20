@@ -92,7 +92,6 @@ module.exports = function (app) {
             credit_card_expiration: req.body.credit_card_expiration
         }).then(function(data) {
             console.log("BODY", req.body);
-            console.log("DATA", data.id);
             
             db.Guest.findAll({
                 where: {
@@ -102,6 +101,7 @@ module.exports = function (app) {
                 console.log("dbGuest", dbGuest);
                 res.json(dbGuest);
                 // res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
+
             });
         });
     });

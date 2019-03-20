@@ -94,46 +94,6 @@ $(document).ready(function () {
                 $(".gueststablebody").append("<td width = '155px'>" + data[i].guest_email + "</td>" );
                 $(".gueststablebody").append("</tr>");
             }
-               
-            
-
-            // var table = $("<table>");
-            // var thead = $("<thead>");
-            // var trh = $("<tr>");
-            // var trb = $("<tr>");
-            // var th1 = $("<th>");
-            // var th2 = $("<th>");
-            // var th3 = $("<th>");
-            // var th4 = $("<th>");
-            // var tbody = $("<tbody>");
-            // var td1 = $("<td>");
-            // var td2 = $("<td>");
-            // var td3 = $("<td>");
-            // var td4 = $("<td>");
-            // table.addClass("table is-fullwidth is-striped is-narrow is-hoverable");
-            // thead.addClass("thead");
-            // table.append(thead);
-            // thead.append(trh);
-            // th1.text("FIRST NAME");
-            // th2.text("LAST NAME");
-            // th3.text("PHONE #");
-            // th4.text("EMAIL");
-            // td1.text(data.first_name);
-            // td2.text(data.last_name);
-            // td3.text(data.guest_phone);
-            // td4.text(data.guest_email);
-            // trh.append(th1);
-            // trh.append(th2);
-            // trh.append(th3);
-            // trh.append(th4);
-            // tbody.append(trh);
-            // table.append(tbody);
-            // tbody.append(trb);
-            // trb.append(td1);
-            // trb.append(td2);
-            // trb.append(td3);
-            // trb.append(td4);
-            // guestcontainer.html(table); 
         });
     });
 
@@ -162,36 +122,6 @@ $(document).ready(function () {
                 $(".reservtablebody").append("<td>" + data[i].date_in + "</td>" );
                 $(".reservtablebody").append("<td>" + data[i].date_out + "</td>" );
                 $(".reservtablebody").append("<td>" + data[i].RoomId + "</td>" );
-               
-                //UPDATE BUTTON
-                // $(".reservtablebody").append("<td>");
-                // $(".reservtablebody").append(" <form action = '/api/updateRes' method = 'POST'>");
-                // $(".reservtablebody").append("<div class='field is-horizontal'>");
-                // $(".reservtablebody").append("<div class='field-body'>");
-                // $(".reservtablebody").append("<div class='field has-addons'>");
-                // $(".reservtablebody").append("<div class = 'control'>");
-                // $(".reservtablebody").append("<input  class = 'button update-res' type = 'submit' value = 'UPDATE'>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</form>");
-                // $(".reservtablebody").append("</td>");
-
-                // //CANCEL BUTTON
-                // $(".reservtablebody").append("<td>");
-                // $(".reservtablebody").append("<form action = '/api/cancelRes' method = 'POST'>");
-                // $(".reservtablebody").append("<div class='field is-horizontal'>");
-                // $(".reservtablebody").append("<div class='field-body'>");
-                // $(".reservtablebody").append("<div class='field has-addons'>");
-                // $(".reservtablebody").append("<div class = 'control'>");
-                // $(".reservtablebody").append("<input  class = 'button cancel-res' type = 'submit' value = 'X'>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</div>");
-                // $(".reservtablebody").append("</form>");
-                // $(".reservtablebody").append("</td>");
                 $(".reservtablebody").append("</tr>");
             }
         });
@@ -210,7 +140,7 @@ $(document).ready(function () {
             $.ajax({
                 url: "/api/reservations/guests/search?first_name=" + condition.first_name + "&last_name="+ condition.last_name +"&guest_phone="+ condition.guest_phone +"&guest_email="+ condition.guest_email
             }).then(function(data){
-                // console.log(data[0].Reservations);
+
                 $(".reservtablebody").empty();
 
                 for (var i = 0; i < data.length; i ++){
@@ -224,36 +154,6 @@ $(document).ready(function () {
                         $(".reservtablebody").append("<td>" + data[i].Reservations[j].date_in + "</td>" );
                         $(".reservtablebody").append("<td>" + data[i].Reservations[j].date_out + "</td>" );
                         $(".reservtablebody").append("<td>" + data[i].Reservations[j].RoomId + "</td>" );
-                       
-                        //UPDATE BUTTON
-                        // $(".reservtablebody").append("<td>");
-                        // $(".reservtablebody").append(" <form action = '/api/updateRes' method = 'POST'>");
-                        // $(".reservtablebody").append("<div class='field is-horizontal'>");
-                        // $(".reservtablebody").append("<div class='field-body'>");
-                        // $(".reservtablebody").append("<div class='field has-addons'>");
-                        // $(".reservtablebody").append("<div class = 'control'>");
-                        // $(".reservtablebody").append("<input  class = 'button update-res' type = 'submit' value = 'UPDATE'>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</form>");
-                        // $(".reservtablebody").append("</td>");
-        
-                        // //CANCEL BUTTON
-                        // $(".reservtablebody").append("<td>");
-                        // $(".reservtablebody").append("<form action = '/api/cancelRes' method = 'POST'>");
-                        // $(".reservtablebody").append("<div class='field is-horizontal'>");
-                        // $(".reservtablebody").append("<div class='field-body'>");
-                        // $(".reservtablebody").append("<div class='field has-addons'>");
-                        // $(".reservtablebody").append("<div class = 'control'>");
-                        // $(".reservtablebody").append("<input  class = 'button cancel-res' type = 'submit' value = 'X'>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</div>");
-                        // $(".reservtablebody").append("</form>");
-                        // $(".reservtablebody").append("</td>");
                         $(".reservtablebody").append("</tr>");
                     }    
                 }
@@ -269,7 +169,7 @@ $(document).ready(function () {
             id : $("#cancelreservnumber").val().trim(),
             canceled: $("#reservationiscanceled").val()
         }
-        // console.log(condition.canceled);
+
         $.ajax({
             url: "/api/reservations/canceled/search?id=" +  condition.id + "&canceled="+condition.canceled
         }).then(function(data){
@@ -309,10 +209,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/room/search?id="+condition.id+"&max_price="+condition.max_price+"&min_price="+condition.min_price+"&bed_type="+condition.bed_type+"&number_of_beds="+condition.number_of_beds+"&max_occupancy="+condition.max_occupancy+"&adjoining="+condition.adjoining+"&jacuzzi="+condition.jacuzzi+"&balcony="+condition.balcony+"&smoke="+condition.smoke
         }).then(function(data){
-                //  roomscontainer.append("<div class = 'constrainer2'>");
-
-                // $(".constrainer2").append("<table class='is-fullwidth is-striped is-hoverable'> <thead width = '100%'> <tr><th>ROOM #</th><th>PRICE/NIGHT</th><th># OF BEDS</th> <th>BED TYPE</th> </tr></thead><tbody class = 'roomsbodycontainer'></tbody> </table></div>");
-            
+              
             for (var i = 0; i < data.length; i++){
 
                 $(".roomsbodycontainer").append("<tr>");
@@ -323,7 +220,6 @@ $(document).ready(function () {
             }   
         });
     });
-
 
     // CURRENT TIME IN INDEX
     function currentTime (){
@@ -377,27 +273,6 @@ $(document).ready(function () {
 
 //===================================================================
 //NEW-RESERVATION EJS PAGE 
-
-    //CONTAINERS
-    var resroomscontainer = $(".room-search");
-    var prevguestcontainer = $(".previous-guest-search");
-
-    //CREATE NEW RESERVATION SEARCH PARAMETERS
-    $("#newreservationsearch").on("click", function(event){
-        event.preventDefault();
-        var condition = {
-            startDate: $("#start-date").val().trim(),
-            endDate: $("#end-date").val().trim(),
-            }
-        $.ajax({
-            url : "/reservation/new/roomsearch?start_date=" + condition.startDate + "&end_date=" + condition.endDate
-        }).then(function(data){
-            resroomscontainer.html(data);
-        });
-    });
-
-//===================================================================
-//NEW-RESERVATION HTML PAGE 
 
     //CONTAINERS
     var resroomscontainer = $(".room-search");
