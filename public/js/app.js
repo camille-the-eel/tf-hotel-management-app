@@ -437,6 +437,7 @@ $(document).ready(function () {
     //CREATE NEW GUEST
     $(".create_new_guest").on("submit", function(event){
         event.preventDefault();
+        $(".previous-guest-search").empty();
 
         var newGuest = {
             last_name: $("#last_name").val().trim(),
@@ -454,7 +455,12 @@ $(document).ready(function () {
             type: "POST",
             data: newGuest
         }).then(function(data){
-            prevguestcontainer.html(data);
+
+            $(".previous-guest-search").append("<tr>");
+            $(".previous-guest-search").append("<td width = '88px'>" + data[0].first_name + " " + data[0].last_name + "</td>");
+            $(".previous-guest-search").append("<td width = '128px'>" + data[0].guest_phone +"</td>");
+            $(".previous-guest-search").append("<td width = '105px'>" + data[0].guest_email +"</td>");
+            // prevguestcontainer.html(data);
         });
     });
 
