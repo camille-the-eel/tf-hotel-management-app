@@ -210,14 +210,5 @@ module.exports = function (app) {
 
       });
      });
-   
-    // app.post("/rooms", function(req, res){
-    //     db.Rooms.findAll({where: {
-    //         date_in: req.body.date_in
-    //     }}).then(function(dbRooms){res.render("rooms", {rooms: dbRooms})});
-    // });
-    // app.get("/rooms", function(req, res){
-
-    //     res.render("partials/rooms");
-    // });
+     
     };
