@@ -100,14 +100,10 @@ module.exports = function (app) {
                 }
             }).then(function(dbGuest){
                 console.log("dbGuest", dbGuest);
+                res.json(dbGuest);
                 // res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
             });
-
-            // res.json({ newGuest: data});
-            // res.render("partials/new-guest", {layout: false, newGuest : req.body});
-            // res.send(200);
         });
-
     });
 
 
