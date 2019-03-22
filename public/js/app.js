@@ -310,7 +310,7 @@ $(document).ready(function () {
     });
 
     //CREATE NEW GUEST
-    $(".create_new_guest").on("submit", function(event){
+    $(".create_new_guest").on("click", function(event){
         event.preventDefault();
         $(".previous-guest-search").empty();
 
@@ -320,7 +320,7 @@ $(document).ready(function () {
             guest_phone: $("#guest_phone").val().trim(),
             guest_email: $("#guest_email").val().trim(),
             guest_notes: $("#guest_notes").val().trim(),
-            credit_card_number: parseInt.$("#credit_card_number").val().trim()
+            credit_card_number: parseInt($("#credit_card_number").val().trim())
             // credit_card_type: $("#credit_card_type").val().trim(),
             // credit_card_expiration: $("#credit_card_expiration").val().trim()
         };
