@@ -81,6 +81,9 @@ module.exports = function (app) {
             return res.status(422).json({ errors: errors.array() });
         }
 
+        console.log("BODY!!!!!", req.body);
+        //credit card type and expiration are not within body???
+
         db.Guest.create({
             last_name: req.body.last_name,
             first_name: req.body.first_name,
@@ -99,8 +102,7 @@ module.exports = function (app) {
                 }
             }).then(function(dbGuest){
                 console.log("dbGuest", dbGuest);
-                res.json(dbGuest);
-                // res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
+                res.render("partials/new-guest", {layout: false, newGuest : dbGuest});
 
             });
         });

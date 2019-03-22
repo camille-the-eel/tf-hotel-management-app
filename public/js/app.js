@@ -312,17 +312,16 @@ $(document).ready(function () {
     //CREATE NEW GUEST
     $(".create_new_guest").on("click", function(event){
         event.preventDefault();
-        $(".previous-guest-search").empty();
-
+        
         var newGuest = {
             last_name: $("#last_name").val().trim(),
             first_name: $("#first_name").val().trim(),
             guest_phone: $("#guest_phone").val().trim(),
             guest_email: $("#guest_email").val().trim(),
             guest_notes: $("#guest_notes").val().trim(),
-            credit_card_number: parseInt($("#credit_card_number").val().trim())
-            // credit_card_type: $("#credit_card_type").val().trim(),
-            // credit_card_expiration: $("#credit_card_expiration").val().trim()
+            credit_card_number: parseInt($("#credit_card_number").val().trim()),
+            credit_card_type: $("#credit_card_type option:selected").text(),
+            credit_card_expiration: $("#credit_card_expiration").val().trim()
         };
 
         $.ajax({
@@ -330,12 +329,7 @@ $(document).ready(function () {
             type: "POST",
             data: newGuest
         }).then(function(data){
-
-            $(".previous-guest-search").append("<tr>");
-            $(".previous-guest-search").append("<td width = '88px'>" + data[0].first_name + " " + data[0].last_name + "</td>");
-            $(".previous-guest-search").append("<td width = '128px'>" + data[0].guest_phone +"</td>");
-            $(".previous-guest-search").append("<td width = '105px'>" + data[0].guest_email +"</td>");
-            // prevguestcontainer.html(data);
+            prevguestcontainer.html(data);
         });
     });
 
