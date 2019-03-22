@@ -225,7 +225,7 @@ $(document).ready(function () {
     function currentTime (){
 
         var sec = 1;
-        var date = moment().format("MMM Do YYYY");  
+        var date = moment().format("MMMM Do, YYYY");  
         var time = moment().format('LT'); 
 
         $("#date").text(date);
