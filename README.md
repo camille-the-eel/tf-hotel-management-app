@@ -58,8 +58,10 @@ Features to Come:
 
 =======================================================================================
 
-### Wireframes
+**Wireframes**
 
 ![Mockup: Home Page](assets/TF_Index.jpg)
+
+=======================================================================================
 
 ![Wireframe: Create](assets/TF_Create.jpg)
