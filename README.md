@@ -60,6 +60,6 @@ Features to Come:
 
 ### Wireframes
 
-![Mockup: Home Page](assets/TF_Index.pdf)
+![Mockup: Home Page](assets/TF_Index.jpg)
 
-![Wireframe: Create](assets/TF_Create.pdf)
+![Wireframe: Create](assets/TF_Create.jpg)
